@@ -28,14 +28,22 @@
     @property (strong, nonatomic) IBOutlet UICollectionView *CuboidCollectionView;
     @property (nonatomic, strong) NSString* cubCellValue;
 
+    /** pinch gesture**/
+    @property (nonatomic, strong) UIPinchGestureRecognizer *gesture;
+    /** pinch gesture**/
 
 @end
 
 
 @implementation CuboidViewController
 
+
 @synthesize watchArray,cubCellValue;
 
+/** pinch gesture**/
+const CGFloat kScaleBoundLower = 0.5;
+const CGFloat kScaleBoundUpper = 2.0;
+/** pinch gesture**/
 
 CellViewController *selectedCell;
 NSIndexPath *selectedCellIndexPath;
@@ -71,6 +79,16 @@ Boolean didChange = 0;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(submitData:)];
     
     [self registerForKeyboardNotifications];
+    
+    /** pinch gesture**/
+    self.fitCells = NO;
+    self.animatedZooming = NO;
+    self.scale = 1.0;
+    
+    self.gesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didReceivePinchGesture:)];
+    [self.CuboidCollectionView addGestureRecognizer:self.gesture];
+    /** pinch gesture**/
+    
     //[self.watchCollectionView reloadData];
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_logo.png"]];
  
@@ -93,6 +111,26 @@ Boolean didChange = 0;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector (keyboardDidHide:)
                                                  name: UIKeyboardDidHideNotification object:nil];
 }
+
+/*
+#pragma mark - Accessors
+- (void)setScale:(CGFloat)scale
+{
+    // Make sure it doesn't go out of bounds
+    if (scale < kScaleBoundLower)
+    {
+        _scale = kScaleBoundLower;
+    }
+    else if (scale > kScaleBoundUpper)
+    {
+        _scale = kScaleBoundUpper;
+    }
+    else
+    {
+        _scale = scale;
+    }
+}
+*/
 
 -(void) keyboardDidShow: (NSNotification *)notif{
     
@@ -279,7 +317,80 @@ Boolean didChange = 0;
 }
 
 
+#pragma mark - UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    /*
+    // Main use of the scale property
+    CGFloat scaledWidth = 50 * self.scale;
+    if (self.fitCells) {
+        NSInteger cols = floor(320 / scaledWidth);
+        CGFloat totalSpacingSize = 10 * (cols - 1); // 10 is defined in the xib
+        CGFloat fittedWidth = (320 - totalSpacingSize) / cols;
+        return CGSizeMake(fittedWidth, fittedWidth);
+    } else {
+        return CGSizeMake(scaledWidth, scaledWidth);
+    } */
+    
+     return CGSizeMake(50*self.scale, 50*self.scale);
+}
 
+#pragma mark - Gesture Recognizers
+- (void)didReceivePinchGesture:(UIPinchGestureRecognizer*)gesture
+{
+    
+    double newCellSize = [self.CuboidCollectionView.collectionViewLayout cellSize] * gesture.scale;
+    newCellSize = MIN(newCellSize, 100);
+    newCellSize = MAX(newCellSize, 15);
+    
+    [(IMMapViewLayout *)self.CuboidCollectionView.collectionViewLayout setCellSize:newCellSize];
+    [self.CuboidCollectionView.collectionViewLayout invalidateLayout];
+    
+    /*
+    static CGFloat scaleStart;
+    
+    if (gesture.state == UIGestureRecognizerStateBegan)
+    {
+        scaleStart = self.scale;
+    }
+    else if (gesture.state == UIGestureRecognizerStateChanged)
+    {
+        self.scale = scaleStart * gesture.scale;
+        [self.CuboidCollectionView.collectionViewLayout invalidateLayout];
+    }
+     */
+    /*
+    if (gesture.state == UIGestureRecognizerStateBegan)
+    {
+        // Take an snapshot of the initial scale
+        scaleStart = self.scale;
+        return;
+    }
+    if (gesture.state == UIGestureRecognizerStateChanged)
+    {
+        // Apply the scale of the gesture to get the new scale
+        self.scale = scaleStart * gesture.scale;
+        
+        if (self.animatedZooming)
+        {
+            // Animated zooming (remove and re-add the gesture recognizer to prevent updates during the animation)
+            [self.CuboidCollectionView removeGestureRecognizer:self.gesture];
+            UICollectionViewFlowLayout *newLayout = [[UICollectionViewFlowLayout alloc] init];
+            [self.CuboidCollectionView setCollectionViewLayout:newLayout animated:YES completion:^(BOOL finished) {
+                [self.CuboidCollectionView addGestureRecognizer:self.gesture];
+            }];
+        }
+        else
+        {
+            // Invalidate layout
+            [self.CuboidCollectionView.collectionViewLayout invalidateLayout];
+        }
+        
+    } */
+    
+}
+
+#pragma mark - textView Methods
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     
    // NSLog(@"Inside textViewDidBEGINEditing");
@@ -291,6 +402,7 @@ Boolean didChange = 0;
     //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveNotes:)];
     
 }
+
 
 - (void)textViewDidChange:(UITextView *)textView{
     didChange= true;

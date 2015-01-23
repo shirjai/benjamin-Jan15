@@ -16,4 +16,5 @@
 
 //@property (nonatomic,strong) IBOutlet UILabel *cellLabel;
 @property (nonatomic,strong) IBOutlet UITextView *watchCellValue;
+@property (nonatomic,assign) CGFloat scale;
 @end
