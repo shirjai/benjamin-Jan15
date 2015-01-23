@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>tableId</key>
+	<integer>2000283</integer>
+	<key>rowIdKey</key>
+	<string>RowId</string>
+	<key>timeColName</key>
+	<string>NotesTimestamp</string>
+	<key>valueColName</key>
+	<string>NotesVal</string>
+</dict>
+</plist>

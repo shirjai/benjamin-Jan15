@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>tableId</key>
+	<integer>2000284</integer>
+	<key>rowIdKey</key>
+	<string>RowId</string>
+	<key>tagValCol</key>
+	<string>Tag Name</string>
+	<key>valCol</key>
+	<string>Value</string>
+	<key>timeStampCol</key>
+	<string>Timestamp</string>
+	<key>userColName</key>
+	<string>UserId</string>
+	<key>cubColName</key>
+	<string>Cuboid Id</string>
+	<key>dynamicQuery</key>
+	<string>?Cuboid Id=&amp;UserId=</string>
+	<key>queryId</key>
+	<string>68</string>
+</dict>
+</plist>
