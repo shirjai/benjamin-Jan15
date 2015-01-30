@@ -94,6 +94,8 @@ Boolean didChange = 0;
     [self.CuboidCollectionView addGestureRecognizer:self.gesture];
     /** pinch gesture**/
     
+    
+    
     //[self.watchCollectionView reloadData];
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_logo.png"]];
  
@@ -379,7 +381,7 @@ Boolean didChange = 0;
     }
     else if (gesture.state == UIGestureRecognizerStateChanged)
     {
-        [gridLayout setCellItemSize :CGSizeMake(46.0f, 35.0f) :7];
+        [gridLayout setCellItemSize :CGSizeMake(45.0f, 35.0f) :7];
         [gridLayout invalidateLayout];
         
         //[gridLayout prepareLayout];
