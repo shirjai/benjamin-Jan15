@@ -13,6 +13,7 @@
 - (instancetype)copyWithZone:(NSZone *)zone {
     hdrLayout *copy = [super copyWithZone:zone];
     copy.bkgrndClr = self.bkgrndClr;
+    copy.hdrFont = self.hdrFont;
     return copy;
 }
 

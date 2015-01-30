@@ -18,6 +18,8 @@
 #import "ExternalQuery.h"
 #import "CuboidHandler.h"
 
+#import "CellViewLayout.h"
+
 
 @interface CuboidViewController ()<UICollectionViewDelegate, UICollectionViewDataSource//>
 ,UICollectionViewDelegateFlowLayout,UITextViewDelegate>
@@ -41,14 +43,17 @@
 @synthesize watchArray,cubCellValue;
 
 /** pinch gesture**/
-const CGFloat kScaleBoundLower = 0.5;
-const CGFloat kScaleBoundUpper = 2.0;
+const CGFloat kScaleLower = 1;
+const CGFloat kScaleUpper = 4.0;
 /** pinch gesture**/
 
 CellViewController *selectedCell;
 NSIndexPath *selectedCellIndexPath;
 NSMutableDictionary *dictChanges;
 Boolean didChange = 0;
+
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -83,7 +88,7 @@ Boolean didChange = 0;
     /** pinch gesture**/
     self.fitCells = NO;
     self.animatedZooming = NO;
-    self.scale = 1.0;
+    self.scale = (kScaleUpper + kScaleLower)/2.0;
     
     self.gesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didReceivePinchGesture:)];
     [self.CuboidCollectionView addGestureRecognizer:self.gesture];
@@ -112,26 +117,27 @@ Boolean didChange = 0;
                                                  name: UIKeyboardDidHideNotification object:nil];
 }
 
+
 /*
 #pragma mark - Accessors
 - (void)setScale:(CGFloat)scale
 {
     // Make sure it doesn't go out of bounds
-    if (scale < kScaleBoundLower)
+    if (scale < kScaleLower)
     {
-        _scale = kScaleBoundLower;
+        _scale = kScaleLower;
     }
-    else if (scale > kScaleBoundUpper)
+    else if (scale > kScaleUpper)
     {
-        _scale = kScaleBoundUpper;
+        _scale = kScaleUpper;
     }
     else
     {
         _scale = scale;
     }
 }
-*/
 
+*/
 -(void) keyboardDidShow: (NSNotification *)notif{
     
     //get keyboard size
@@ -255,11 +261,15 @@ Boolean didChange = 0;
 }
 
 
+
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     CellViewController *cell = (CellViewController *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CuboidCell" forIndexPath:indexPath];
 
-
+    cell.contentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight);
+    cell.contentView.translatesAutoresizingMaskIntoConstraints = YES;
+    
    //cell.cellLabel.frame=CGRectMake(12, 13, 98, 0);
     
     //cell.cellLabel.text=watchArray[indexPath.section][indexPath.row];
@@ -277,6 +287,8 @@ Boolean didChange = 0;
     
     
     cell.watchCellValue.backgroundColor = [UIColor clearColor];
+    
+
     
     //cell.watchCellValue.lineBreakMode=NSLineBreakByWordWrapping;
     //cell.cellLabel.preferredMaxLayoutWidth = CGRectGetWidth(collectionView.bounds);
@@ -317,10 +329,11 @@ Boolean didChange = 0;
 }
 
 
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
+    
     // Main use of the scale property
     CGFloat scaledWidth = 50 * self.scale;
     if (self.fitCells) {
@@ -330,14 +343,21 @@ Boolean didChange = 0;
         return CGSizeMake(fittedWidth, fittedWidth);
     } else {
         return CGSizeMake(scaledWidth, scaledWidth);
-    } */
+    }
     
-     return CGSizeMake(50*self.scale, 50*self.scale);
+     return CGSizeMake(50 * self.scale, 50 * self.scale);
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Inside didHighlightItemAtIndexPath");
+}
+
+
 
 #pragma mark - Gesture Recognizers
 - (void)didReceivePinchGesture:(UIPinchGestureRecognizer*)gesture
 {
+    /*
     
     double newCellSize = [self.CuboidCollectionView.collectionViewLayout cellSize] * gesture.scale;
     newCellSize = MIN(newCellSize, 100);
@@ -345,20 +365,30 @@ Boolean didChange = 0;
     
     [(IMMapViewLayout *)self.CuboidCollectionView.collectionViewLayout setCellSize:newCellSize];
     [self.CuboidCollectionView.collectionViewLayout invalidateLayout];
+    */
     
-    /*
+    CellViewLayout *gridLayout = [[CellViewLayout alloc] init ];
+    CGSize initialCellSize = gridLayout.itemSize;
+    
+    
     static CGFloat scaleStart;
     
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
-        scaleStart = self.scale;
+        gridLayout.itemSize = initialCellSize;
     }
     else if (gesture.state == UIGestureRecognizerStateChanged)
     {
-        self.scale = scaleStart * gesture.scale;
-        [self.CuboidCollectionView.collectionViewLayout invalidateLayout];
+        [gridLayout setCellItemSize :CGSizeMake(46.0f, 35.0f) :7];
+        [gridLayout invalidateLayout];
+        
+        //[gridLayout prepareLayout];
+        //[gridLayout collectionViewContentSize];
+        //[gridLayout layoutAttributesForElementsInRect:CGRectMake(0, -568, 320, 1136)];
     }
-     */
+    
+    //[self.CuboidCollectionView reloadData];
+    
     /*
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
@@ -455,9 +485,7 @@ Boolean didChange = 0;
     
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
-     NSLog(@"Inside didHighlightItemAtIndexPath");
-}
+
 
 -(IBAction)submitData:(id)sender{
     

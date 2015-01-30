@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CellViewLayout : UICollectionViewLayout
+@interface CellViewLayout : UICollectionViewLayout<UICollectionViewDelegateFlowLayout>
 
     @property (nonatomic) UIEdgeInsets itemInsets;
     @property (nonatomic) CGSize itemSize;
@@ -17,4 +17,7 @@
 
     /*for new header layout*/
     @property (nonatomic, copy) NSArray *rowColors;
+
+  //  @property (nonatomic,assign) CGFloat scale;
+   -(void)setCellItemSize :(CGSize)size :(int)colCntParam;
 @end

@@ -3,21 +3,31 @@
 <plist version="1.0">
 <dict>
 	<key>tableId</key>
-	<real>2000284</real>
+	<real>2000268</real>
 	<key>rowIdKey</key>
 	<string>RowId</string>
-	<key>tagValCol</key>
-	<string>Tag Name</string>
-	<key>valCol</key>
-	<string>Value</string>
-	<key>timeStampCol</key>
-	<string>Timestamp</string>
-	<key>userColName</key>
-	<string>UserId</string>
-	<key>cubColName</key>
-	<string>Cuboid Id</string>
+	<key>col1</key>
+	<string>Order ID</string>
+	<key>col2</key>
+	<string>Batch ID</string>
+	<key>col3</key>
+	<string>Area</string>
+	<key>col4</key>
+	<string>Batch Status</string>
+	<key>col5</key>
+	<string>Batch Product Material ID</string>
+	<key>col6</key>
+	<string>Recipe ID</string>
+	<key>col7</key>
+	<string>Guid</string>
+	<key>col8</key>
+	<string>UP Instance ID</string>
+	<key>critCol1</key>
+	<string>Order ID</string>
+	<key>critCol2</key>
+	<string>Batch ID</string>
 	<key>dynamicQuery</key>
-	<string>?Cuboid Id=&amp;UserId=</string>
+	<string>?Order ID=1000018823</string>
 	<key>queryId</key>
 	<string>68</string>
 </dict>

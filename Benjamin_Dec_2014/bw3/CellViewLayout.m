@@ -1,4 +1,4 @@
-//
+        //
 //  CellViewLayout.m
 //  collectionViewStudy
 //
@@ -16,7 +16,7 @@
 
 static NSString * const cellWatch = @"cellWatch";
 
-@interface CellViewLayout ()
+@interface CellViewLayout ()<UICollectionViewDelegateFlowLayout>
 
     @property (nonatomic, strong) NSDictionary *layoutInfo;
 
@@ -27,6 +27,13 @@ static NSString * const cellWatch = @"cellWatch";
 
 
 @implementation CellViewLayout
+
+//const CGFloat kScaleBoundLower = 0.5;
+//const CGFloat kScaleBoundUpper = 2.0;
+CGFloat cellWidth = 40.0;
+CGFloat cellHt = 35.0;
+int colCnt = 8;
+
 
 #pragma mark - Lifecycle
 
@@ -46,10 +53,7 @@ static NSString * const cellWatch = @"cellWatch";
     self = [super init];
     if (self) {
         [self setup];
-        self.rowColors = @[
-                                  [UIColor lightGrayColor],
-                                  [UIColor cyanColor],
-                                  ];
+
     }
     
     return self;
@@ -58,10 +62,25 @@ static NSString * const cellWatch = @"cellWatch";
 - (void)setup
 {
     self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
-    self.itemSize = CGSizeMake(80.0f, 60.0f);
+    self.itemSize = CGSizeMake(cellWidth, cellHt );
     self.interItemSpacingY = 0.0f;
-    self.numberOfColumns = 4;//[self.collectionView numberOfItemsInSection:[self.collectionView numberOfSections]] ;//3;
+    self.numberOfColumns = colCnt;//[self.collectionView numberOfItemsInSection:[self.collectionView numberOfSections]] ;//3;
 }
+
+- (void)setCellItemSize :(CGSize)size :(int)colCntParam{
+
+    
+    cellHt = size.height;
+    cellWidth = size.width;
+    colCnt = colCntParam;
+
+    
+    //return size;
+    
+}
+
+
+
 
 #pragma mark - Layout
 
@@ -69,7 +88,6 @@ static NSString * const cellWatch = @"cellWatch";
 + (Class)layoutAttributesClass {
     return [hdrLayout class];
 }
-
 
 - (void)prepareLayout
 {
@@ -107,7 +125,7 @@ static NSString * const cellWatch = @"cellWatch";
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     //NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
-    NSMutableArray *attributes = [self layoutAttributesForElementsInRect_old:rect];
+   NSMutableArray *attributes = [self layoutAttributesForElementsInRect_old:rect];
     //[self assignBackgroundColorsToPoses:attributes];
     return attributes;
     
@@ -130,8 +148,14 @@ static NSString * const cellWatch = @"cellWatch";
               if (CGRectIntersectsRect(rect, attributes.frame))
               {
                   // set the header color.
-                  if(indexPath.section == 0 )
+                  if(indexPath.section == 0 ){
                       attributes.bkgrndClr = [UIColor brownColor];
+                      attributes.hdrFont = [UIFont italicSystemFontOfSize:11];
+                     // CellViewController *cell = (CellViewController *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"CuboidCell" forIndexPath:indexPath];
+                     // cell.watchCellValue.font = [UIFont boldSystemFontOfSize:12];
+                  }
+                  else
+                      attributes.hdrFont = [UIFont systemFontOfSize:10];
                   [allAttributes addObject:attributes];
               }
           }];
@@ -150,6 +174,25 @@ static NSString * const cellWatch = @"cellWatch";
 }
 
 
+/*
+#pragma mark - Accessors
+- (void)setScale:(CGFloat)scale
+{
+    // Make sure it doesn't go out of bounds
+    if (scale < kScaleBoundLower)
+    {
+        _scale = kScaleBoundLower;
+    }
+    else if (scale > kScaleBoundUpper)
+    {
+        _scale = kScaleBoundUpper;
+    }
+    else
+    {
+        _scale = scale;
+    }
+}
+*/
 - (CGSize)collectionViewContentSize
 {
    // NSLog(@"**** Inside collectionViewContentSize ****");
@@ -174,9 +217,25 @@ static NSString * const cellWatch = @"cellWatch";
     return CGSizeMake(self.collectionView.bounds.size.width, height);
 }
 
+
+
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
     return YES;
+}
+
+
+
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+     // Main use of the scale property
+     //CGFloat scaledWidth = 50 * self.scale;
+
+    
+    return CGSizeMake(cellWidth, cellHt);
 }
 
 #pragma mark - Private
@@ -219,6 +278,7 @@ static NSString * const cellWatch = @"cellWatch";
 
     
     CGFloat originY = floor(self.itemInsets.top +(self.itemSize.height + self.interItemSpacingY) * row);
+    
 
     
     return CGRectMake(originX, originY, cellWidth, self.itemSize.height);

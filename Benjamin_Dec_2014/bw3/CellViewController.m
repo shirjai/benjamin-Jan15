@@ -16,6 +16,19 @@
 
 @synthesize watchCellValue;
 
+
+- (void)awakerFromNib {
+    
+    
+    self.contentView.autoresizingMask= (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+}
+/*
+- (void)setBounds:(CGRect)bounds {
+    [super setBounds:bounds];
+    self.contentView.frame = bounds;
+    self.contentView.autoresizingMask= (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+}
+*/
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -28,15 +41,20 @@
         [self addSubview:watchCellValue];
         
         UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped)];
+       // tap.delaysTouchesBegan = YES;
+       // tap.numberOfTapsRequired = 2;
         
         [watchCellValue addGestureRecognizer:tap];
        
         //watchCellValue.backgroundColor = [UIColor brownColor];
         
-        //self.autoresizesSubviews = YES;
-        //self.watchCellValue.autoresizingMask = (UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight);
+        self.autoresizesSubviews = YES;
+       // self.contentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight);
+       // self.contentView.translatesAutoresizingMaskIntoConstraints = YES;
         
-        // self.watchCellValue.font = [UIFont boldSystemFontOfSize:42];
+         //self.watchCellValue.font = [UIFont systemFontOfSize:10];
+        
+      
         // self.watchCellValue.adjustsFontSizeToFitWidth = YES;
         
 
@@ -87,6 +105,7 @@
         self.backgroundView = [[UIView alloc] init];
     }
     self.backgroundView.backgroundColor = layoutAttributes.bkgrndClr;
+    self.watchCellValue.font = layoutAttributes.hdrFont;
 }
 
 
