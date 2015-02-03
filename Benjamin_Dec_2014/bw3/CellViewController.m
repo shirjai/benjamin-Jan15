@@ -105,7 +105,7 @@
         self.backgroundView = [[UIView alloc] init];
     }
     self.backgroundView.backgroundColor = layoutAttributes.bkgrndClr;
-    self.watchCellValue.font = layoutAttributes.hdrFont;
+    self.watchCellValue.font = layoutAttributes.dataFont;
 }
 
 

@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/watchViewController.m"
-            timestampString = "442922435.266758"
+            timestampString = "444565131.533171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "-refreshWatch"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/watchViewController.m"
-            timestampString = "442922431.848794"
+            timestampString = "444565131.533171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -618,43 +618,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
-            landmarkName = "-frameForCellWatchAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
-            landmarkName = "-frameForCellWatchAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "-collectionViewContentSize"
             landmarkType = "5">
          </BreakpointContent>
@@ -682,11 +650,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "-collectionViewContentSize"
             landmarkType = "5">
          </BreakpointContent>
@@ -698,11 +666,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "-collectionViewContentSize"
             landmarkType = "5">
          </BreakpointContent>
@@ -714,11 +682,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "-collectionViewContentSize"
             landmarkType = "5">
          </BreakpointContent>
@@ -826,11 +794,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444306246.354402"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -884,11 +852,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444306246.354402"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -980,11 +948,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444310073.308536"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "@implementation CellViewLayout"
             landmarkType = "3">
          </BreakpointContent>
@@ -1108,45 +1076,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
-            landmarkName = "-frameForCellWatchAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "-frameForCellWatchAtIndexPath:"
-            landmarkType = "5">
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "@implementation CellViewLayout"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1236,11 +1172,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444310073.308536"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-layoutAttributesForElementsInRect_old:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1300,11 +1236,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444230444.165891"
+            timestampString = "444565131.533171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "-setCellItemSize::"
             landmarkType = "5">
          </BreakpointContent>
@@ -1316,11 +1252,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444306246.354402"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -1348,11 +1284,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444306246.354402"
+            timestampString = "444565131.533171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "@implementation CellViewLayout"
             landmarkType = "3">
          </BreakpointContent>
@@ -1364,11 +1300,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "@implementation CellViewLayout"
             landmarkType = "3">
          </BreakpointContent>
@@ -1412,11 +1348,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "@implementation CellViewLayout"
             landmarkType = "3">
          </BreakpointContent>
@@ -1428,11 +1364,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444306246.354402"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -1492,11 +1428,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444306246.354402"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -1524,11 +1460,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "-shouldInvalidateLayoutForBoundsChange:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1536,17 +1472,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444311948.196112"
+            timestampString = "444653340.016408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
-            landmarkType = "5">
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "@implementation CellViewLayout"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1610,6 +1546,54 @@
             startingLineNumber = "23"
             endingLineNumber = "23"
             landmarkName = "-awakerFromNib"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/watchViewController.m"
+            timestampString = "444561542.633814"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-collectionView:numberOfItemsInSection:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "444653340.016408"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "-frameForCellWatchAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "444653307.481238"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "+layoutAttributesClass"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

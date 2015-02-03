@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CellViewLayout : UICollectionViewLayout<UICollectionViewDelegateFlowLayout>
+@interface CellViewLayout : UICollectionViewLayout
+//<UICollectionViewDelegateFlowLayout>
 
     @property (nonatomic) UIEdgeInsets itemInsets;
     @property (nonatomic) CGSize itemSize;

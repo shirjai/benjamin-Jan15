@@ -11,6 +11,6 @@
 @interface hdrLayout : UICollectionViewLayoutAttributes
 
     @property (nonatomic, strong) UIColor *bkgrndClr;
-    @property (nonatomic,strong) UIFont *hdrFont;
+    @property (nonatomic,strong) UIFont *dataFont;
 
 @end

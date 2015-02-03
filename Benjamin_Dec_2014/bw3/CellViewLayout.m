@@ -16,7 +16,7 @@
 
 static NSString * const cellWatch = @"cellWatch";
 
-@interface CellViewLayout ()<UICollectionViewDelegateFlowLayout>
+@interface CellViewLayout ()//<UICollectionViewDelegateFlowLayout>
 
     @property (nonatomic, strong) NSDictionary *layoutInfo;
 
@@ -30,9 +30,9 @@ static NSString * const cellWatch = @"cellWatch";
 
 //const CGFloat kScaleBoundLower = 0.5;
 //const CGFloat kScaleBoundUpper = 2.0;
-CGFloat cellWidth = 40.0;
+CGFloat cellWidth = 65.0;
 CGFloat cellHt = 35.0;
-int colCnt = 8;
+int colCnt = 5;
 
 
 #pragma mark - Lifecycle
@@ -61,10 +61,11 @@ int colCnt = 8;
 
 - (void)setup
 {
-    self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+    self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 1.0f);
     self.itemSize = CGSizeMake(cellWidth, cellHt );
     self.interItemSpacingY = 0.0f;
     self.numberOfColumns = colCnt;//[self.collectionView numberOfItemsInSection:[self.collectionView numberOfSections]] ;//3;
+   
 }
 
 - (void)setCellItemSize :(CGSize)size :(int)colCntParam{
@@ -80,14 +81,15 @@ int colCnt = 8;
 }
 
 
-
+/*
 
 #pragma mark - Layout
 
-/*for new header layout*/
+//for new header layout
 + (Class)layoutAttributesClass {
     return [hdrLayout class];
 }
+*/
 
 - (void)prepareLayout
 {
@@ -121,6 +123,8 @@ int colCnt = 8;
     newLayoutInfo[cellWatch] = cellLayoutInfo;
     
     self.layoutInfo = newLayoutInfo;
+    
+
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
@@ -150,12 +154,12 @@ int colCnt = 8;
                   // set the header color.
                   if(indexPath.section == 0 ){
                       attributes.bkgrndClr = [UIColor brownColor];
-                      attributes.hdrFont = [UIFont italicSystemFontOfSize:11];
+                      attributes.dataFont = [UIFont italicSystemFontOfSize:11];
                      // CellViewController *cell = (CellViewController *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"CuboidCell" forIndexPath:indexPath];
                      // cell.watchCellValue.font = [UIFont boldSystemFontOfSize:12];
                   }
                   else
-                      attributes.hdrFont = [UIFont systemFontOfSize:10];
+                      attributes.dataFont = [UIFont systemFontOfSize:10];
                   [allAttributes addObject:attributes];
               }
           }];
@@ -226,7 +230,7 @@ int colCnt = 8;
 
 
 
-
+/*
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -237,8 +241,44 @@ int colCnt = 8;
     
     return CGSizeMake(cellWidth, cellHt);
 }
+*/
 
 #pragma mark - Private
+
+- (UICollectionViewLayoutAttributes*)layoutForAttributesForCellAtIndexPath:(NSIndexPath*)indexPath
+{
+    // Here we have the magic of the layout.
+    
+    NSInteger row = indexPath.row;
+    
+    CGRect bounds = self.collectionView.bounds;
+    CGSize itemSize = self.itemSize;
+    
+    // Get some info:
+    NSInteger verticalItemsCount = (NSInteger)floorf(bounds.size.height / itemSize.height);
+    NSInteger horizontalItemsCount = (NSInteger)floorf(bounds.size.width / itemSize.width);
+    NSInteger itemsPerPage = verticalItemsCount * horizontalItemsCount;
+    
+    // Compute the column & row position, as well as the page of the cell.
+    NSInteger columnPosition = row%horizontalItemsCount;
+    NSInteger rowPosition = (row/horizontalItemsCount)%verticalItemsCount;
+    NSInteger itemPage = floorf(row/itemsPerPage);
+    
+    // Creating an empty attribute
+    UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    
+    CGRect frame = CGRectZero;
+    
+    // And finally, we assign the positions of the cells
+    frame.origin.x = itemPage * bounds.size.width + columnPosition * itemSize.width;
+    frame.origin.y = rowPosition * itemSize.height;
+    frame.size = _itemSize;
+    
+    attr.frame = frame;
+    
+    return attr;
+}
+
 
 - (CGRect)frameForCellWatchAtIndexPath:(NSIndexPath *)indexPath
 {
