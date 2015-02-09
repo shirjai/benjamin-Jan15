@@ -86,12 +86,14 @@ Boolean didChange = 0;
     [self registerForKeyboardNotifications];
     
     /** pinch gesture**/
-    self.fitCells = NO;
-    self.animatedZooming = NO;
-    self.scale = (kScaleUpper + kScaleLower)/2.0;
+   // self.fitCells = NO;
+   // self.animatedZooming = NO;
+    self.scale = 1.0;//(kScaleUpper + kScaleLower)/2.0;
     
     self.gesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didReceivePinchGesture:)];
     [self.CuboidCollectionView addGestureRecognizer:self.gesture];
+    
+    
     /** pinch gesture**/
     
     
@@ -306,7 +308,7 @@ Boolean didChange = 0;
     cell.watchCellValue.delegate = self;
     
     
-    NSLog(@"value ::::: %@",cell.watchCellValue.text);
+   // NSLog(@"value ::::: %@",cell.watchCellValue.text);
     return cell;
 }
 
@@ -330,7 +332,7 @@ Boolean didChange = 0;
         didChange = false;
 }
 
-
+/*
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -350,6 +352,7 @@ Boolean didChange = 0;
      return CGSizeMake(50 * self.scale, 50 * self.scale);
 }
 
+*/
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"Inside didHighlightItemAtIndexPath");
 }
@@ -369,7 +372,7 @@ Boolean didChange = 0;
     [self.CuboidCollectionView.collectionViewLayout invalidateLayout];
     */
     
-    CellViewLayout *gridLayout = [[CellViewLayout alloc] init ];
+    CellViewLayout *gridLayout = (CellViewLayout *)self.CuboidCollectionView.collectionViewLayout;
     CGSize initialCellSize = gridLayout.itemSize;
     
     
@@ -378,10 +381,16 @@ Boolean didChange = 0;
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
         gridLayout.itemSize = initialCellSize;
+        return;
     }
     else if (gesture.state == UIGestureRecognizerStateChanged)
     {
-        [gridLayout setCellItemSize :CGSizeMake(45.0f, 35.0f) :7];
+        NSLog(@"gesture.scale::%f",gesture.scale);
+        //NSLog(@"gesture.scale::%f",gesture.scale);
+         NSLog(@"itemWidth * gesture.scale::%f",gridLayout.itemWidth * gesture.scale);
+        //[gridLayout setItemHt:gridLayout.itemHt * gesture.scale];
+        //if (gesture.scale > 1.0)
+            [gridLayout setItemWidth:gridLayout.itemWidth * gesture.scale];
         [gridLayout invalidateLayout];
         
         //[gridLayout prepareLayout];
@@ -487,7 +496,7 @@ Boolean didChange = 0;
     
 }
 
-
+# pragma mark Boardwalk Methods
 
 -(IBAction)submitData:(id)sender{
     

@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface CellViewLayout : UICollectionViewLayout
-//<UICollectionViewDelegateFlowLayout>
 
     @property (nonatomic) UIEdgeInsets itemInsets;
     @property (nonatomic) CGSize itemSize;
+    @property (nonatomic) CGFloat itemWidth;
+    @property (nonatomic) CGFloat itemHt;
     @property (nonatomic) CGFloat interItemSpacingY;
     @property (nonatomic) NSInteger numberOfColumns;
 
@@ -21,4 +22,5 @@
 
   //  @property (nonatomic,assign) CGFloat scale;
    -(void)setCellItemSize :(CGSize)size :(int)colCntParam;
+
 @end

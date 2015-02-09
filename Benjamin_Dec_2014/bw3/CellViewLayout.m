@@ -16,7 +16,7 @@
 
 static NSString * const cellWatch = @"cellWatch";
 
-@interface CellViewLayout ()//<UICollectionViewDelegateFlowLayout>
+@interface CellViewLayout ()
 
     @property (nonatomic, strong) NSDictionary *layoutInfo;
 
@@ -30,9 +30,9 @@ static NSString * const cellWatch = @"cellWatch";
 
 //const CGFloat kScaleBoundLower = 0.5;
 //const CGFloat kScaleBoundUpper = 2.0;
-CGFloat cellWidth = 65.0;
-CGFloat cellHt = 35.0;
-int colCnt = 5;
+//CGFloat cellWidth = 40.0;
+//CGFloat cellHt = 35.0;
+//int colCnt = 8;
 
 
 #pragma mark - Lifecycle
@@ -59,22 +59,25 @@ int colCnt = 5;
     return self;
 }
 
+
 - (void)setup
 {
-    self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 1.0f);
-    self.itemSize = CGSizeMake(cellWidth, cellHt );
+    //self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 1.0f);
+    self.itemWidth = 40.0;
+    self.itemHt = 35.0;
+    //self.itemSize = CGSizeMake(_itemWidth, _itemHt);
     self.interItemSpacingY = 0.0f;
-    self.numberOfColumns = colCnt;//[self.collectionView numberOfItemsInSection:[self.collectionView numberOfSections]] ;//3;
+    self.numberOfColumns = 8;//[self.collectionView numberOfItemsInSection:[self.collectionView numberOfSections]] ;//3;
    
 }
 
 - (void)setCellItemSize :(CGSize)size :(int)colCntParam{
 
     
-    cellHt = size.height;
-    cellWidth = size.width;
-    colCnt = colCntParam;
-
+    //cellHt = size.height;
+    //cellWidth = size.width;
+    //colCnt = colCntParam;
+    //[self invalidateLayout];
     
     //return size;
     
@@ -95,6 +98,11 @@ int colCnt = 5;
 {
     // NSLog(@"**** Inside prepareLayout ****");
     
+    self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 1.0f);
+    self.itemSize = CGSizeMake(_itemWidth, _itemHt);
+    self.interItemSpacingY = 0.0f;
+    //self.numberOfColumns = colCnt;
+    
     NSMutableDictionary *newLayoutInfo = [NSMutableDictionary dictionary];
     NSMutableDictionary *cellLayoutInfo = [NSMutableDictionary dictionary];
     
@@ -109,8 +117,8 @@ int colCnt = 5;
         for (;item < itemCount; item++) {
             indexPath = [NSIndexPath indexPathForItem:item inSection:section];
             
-            hdrLayout *itemAttributes =
-            [hdrLayout layoutAttributesForCellWithIndexPath:indexPath];
+            hdrLayout *itemAttributes = [hdrLayout layoutAttributesForCellWithIndexPath:indexPath];
+ 
             
             itemAttributes.frame = [self frameForCellWatchAtIndexPath:indexPath];
             
@@ -130,7 +138,7 @@ int colCnt = 5;
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     //NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
    NSMutableArray *attributes = [self layoutAttributesForElementsInRect_old:rect];
-    //[self assignBackgroundColorsToPoses:attributes];
+
     return attributes;
     
 }
@@ -160,6 +168,7 @@ int colCnt = 5;
                   }
                   else
                       attributes.dataFont = [UIFont systemFontOfSize:10];
+                  
                   [allAttributes addObject:attributes];
               }
           }];
@@ -173,7 +182,12 @@ int colCnt = 5;
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-   return self.layoutInfo[cellWatch][indexPath];
+
+    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
+
+    return attributes;
+    //return self.layoutInfo[cellWatch][indexPath];
+
     
 }
 
@@ -218,7 +232,10 @@ int colCnt = 5;
     rowCount * self.itemSize.height + (rowCount - 1) * self.interItemSpacingY +
     self.itemInsets.bottom;
     
-    return CGSizeMake(self.collectionView.bounds.size.width, height);
+    //NSLog(@"self.collectionView.bounds.size.width=%f",self.collectionView.bounds.size.width);
+    return CGSizeMake(self.itemSize.width * 9, height);
+    //return CGSizeMake(self.collectionView.contentSize.width, height);
+    
 }
 
 
@@ -230,100 +247,38 @@ int colCnt = 5;
 
 
 
-/*
-#pragma mark - UICollectionViewDelegateFlowLayout
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-     // Main use of the scale property
-     //CGFloat scaledWidth = 50 * self.scale;
-
-    
-    return CGSizeMake(cellWidth, cellHt);
-}
-*/
 
 #pragma mark - Private
 
-- (UICollectionViewLayoutAttributes*)layoutForAttributesForCellAtIndexPath:(NSIndexPath*)indexPath
-{
-    // Here we have the magic of the layout.
-    
-    NSInteger row = indexPath.row;
-    
-    CGRect bounds = self.collectionView.bounds;
-    CGSize itemSize = self.itemSize;
-    
-    // Get some info:
-    NSInteger verticalItemsCount = (NSInteger)floorf(bounds.size.height / itemSize.height);
-    NSInteger horizontalItemsCount = (NSInteger)floorf(bounds.size.width / itemSize.width);
-    NSInteger itemsPerPage = verticalItemsCount * horizontalItemsCount;
-    
-    // Compute the column & row position, as well as the page of the cell.
-    NSInteger columnPosition = row%horizontalItemsCount;
-    NSInteger rowPosition = (row/horizontalItemsCount)%verticalItemsCount;
-    NSInteger itemPage = floorf(row/itemsPerPage);
-    
-    // Creating an empty attribute
-    UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-    
-    CGRect frame = CGRectZero;
-    
-    // And finally, we assign the positions of the cells
-    frame.origin.x = itemPage * bounds.size.width + columnPosition * itemSize.width;
-    frame.origin.y = rowPosition * itemSize.height;
-    frame.size = _itemSize;
-    
-    attr.frame = frame;
-    
-    return attr;
-}
 
 
 - (CGRect)frameForCellWatchAtIndexPath:(NSIndexPath *)indexPath
 {
-  
+    
     //NSInteger row = indexPath.section / self.numberOfColumns;
-   // NSInteger column = indexPath.section % self.numberOfColumns;
-     NSInteger row = indexPath.section;
-     NSInteger column = indexPath.item;
+    // NSInteger column = indexPath.section % self.numberOfColumns;
+    NSInteger row = indexPath.section;
+    NSInteger column = indexPath.item;
     float cellWidth = self.itemSize.width;
-   // NSLog(@"frameForCellWatchAtIndexPath- section[%ld]item[%ld]",row,column);
-   /*
-    if (column == 0)
-        cellWidth -= 10;
-    if (column == 1)
-        cellWidth -= 30;
-    if (column == 2)
-        cellWidth += 18;
-    */
-    /*
-   NSLog(@"***Calculating cell size** ");
-    NSLog(@"self.collectionView.bounds.size.width=%f",self.collectionView.bounds.size.width);
-    NSLog(@"self.itemInsets.left =%f",self.itemInsets.left);
-    NSLog(@"self.itemInsets.right =%f",self.itemInsets.right);
-    NSLog(@"self.numberOfColumns=%ld",(long)self.numberOfColumns);
-    NSLog(@"self.itemSize.width=%f",cellWidth);
-    */
+    // NSLog(@"frameForCellWatchAtIndexPath- section[%ld]item[%ld]",row,column);
     
     CGFloat spacingX =  self.collectionView.bounds.size.width -
-                        self.itemInsets.left -
-                        self.itemInsets.right -
-                        (self.numberOfColumns * cellWidth);
+    self.itemInsets.left -
+    self.itemInsets.right -
+    (self.numberOfColumns * cellWidth);
     
     if (self.numberOfColumns > 1)
         spacingX = spacingX / (self.numberOfColumns - 1);
     
     CGFloat originX = floorf(self.itemInsets.left + (cellWidth + spacingX) * column);
-
+    
     
     CGFloat originY = floor(self.itemInsets.top +(self.itemSize.height + self.interItemSpacingY) * row);
     
-
+    
     
     return CGRectMake(originX, originY, cellWidth, self.itemSize.height);
 }
-
 @end
 
 

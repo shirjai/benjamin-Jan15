@@ -98,6 +98,8 @@
 } */
 
 /*for new header layout*/
+
+
 - (void)applyLayoutAttributes:(hdrLayout *)layoutAttributes
 {
     [super applyLayoutAttributes:layoutAttributes];
