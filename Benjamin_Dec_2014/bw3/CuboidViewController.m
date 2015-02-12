@@ -48,9 +48,11 @@ const CGFloat kScaleUpper = 4.0;
 /** pinch gesture**/
 
 CellViewController *selectedCell;
+NSIndexPath *prevCellIndexPath;
 NSIndexPath *selectedCellIndexPath;
 NSMutableDictionary *dictChanges;
-Boolean didChange = 0;
+Boolean didValChange = false;
+Boolean didValSaved = true;
 
 
 
@@ -316,20 +318,24 @@ Boolean didChange = 0;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if(didChange == false){
+    //if(!didValChange){
         selectedCell = (CellViewController *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CuboidCell" forIndexPath:indexPath];
     
         selectedCellIndexPath = indexPath;
-    
-      //  NSLog(@"value ::::: %@",selectedCell.watchCellValue.text);
-      //  NSLog(@"value ::::: %@",watchArray[indexPath.section][indexPath.row]);
+
+        
+       // didValSaved = false;
+        
+        NSLog(@"current display value ::::: %@",selectedCell.watchCellValue.text);
+        NSLog(@"stored array value ::::: %@",watchArray[indexPath.section][indexPath.row]);
+        
       //  NSLog(@"indexPath.section ::::: %ld",(long)indexPath.section);
       //  NSLog(@"row ::::: %ld",(long)indexPath.row);
     
         //[cell.watchCellValue shouldChangeTextInRange:];
-    }
-    else
-        didChange = false;
+   // }
+    //else
+    //    didChange = false;
 }
 
 /*
@@ -434,7 +440,10 @@ Boolean didChange = 0;
 #pragma mark - textView Methods
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     
-   // NSLog(@"Inside textViewDidBEGINEditing");
+    NSLog(@"Inside textViewDidBEGINEditing");
+    
+    //as the didSelectIndexPath is invoked before textViewDidEndEditing
+    prevCellIndexPath = selectedCellIndexPath;
     
    // NSIndexPath *indexPath = [self.CuboidCollectionView indexPathForCell:self];
     //[collectionView.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
@@ -446,23 +455,23 @@ Boolean didChange = 0;
 
 
 - (void)textViewDidChange:(UITextView *)textView{
-    didChange= true;
+    didValChange= true;
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView{
     
     // NSLog(@"Inside textViewDidChange: Check For Changes");
     
-    if (didChange == true) {
+    if (didValChange) {
         NSLog(@"Inside textViewDidChange: Changes Identified");
         NSLog(@"textView.text=%@",textView.text);
         
         //NSIndexPath *indexPath = [self.CuboidCollectionView indexPathForCell:selectedCell];
         //[self.CuboidCollectionView.delegate collectionView:self.CuboidCollectionView didSelectItemAtIndexPath:indexPath];
         
-        long sectionIndex = selectedCellIndexPath.section;
-        long rowIndex = selectedCellIndexPath.row;
-        NSString *colHdr = watchArray[0][rowIndex];
+        long sectionIndex   = prevCellIndexPath.section;
+        long rowIndex       = prevCellIndexPath.row;
+        NSString *colHdr    = watchArray[0][rowIndex];
         
         NSLog(@"watchArray[%ld][%ld]=%@",sectionIndex,rowIndex,watchArray[sectionIndex][rowIndex]);
         
@@ -471,13 +480,13 @@ Boolean didChange = 0;
         
         [dictChanges setObject:val forKey:watchArray[sectionIndex][0]];
         
-        [CuboidHandler submitNotes:dictChanges];
-        [self.CuboidCollectionView reloadData];
+       // didValSaved = true;
+
     }
     else
         NSLog(@"Inside textViewDidChange: NO Changes Identified");
     
-    didChange=false;
+    didValChange = false;
     
    // CGPoint cursorPosition = [textView caretRectForPosition:textView.selectedTextRange.start].origin;
    //     CGPoint cursorPosition = [textView caretRectForPosition:textView.selectedTextRange.start].origin;
@@ -503,6 +512,9 @@ Boolean didChange = 0;
     // to dismiss keyboard
     [self.view endEditing:YES];
     [selectedCell.watchCellValue resignFirstResponder];
+    
+    [CuboidHandler submitNotes:dictChanges];
+    [self.CuboidCollectionView reloadData];
     
     //NSIndexPath *indexPath = [self.CuboidCollectionView indexPathForCell:self];
     //[collectionView.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];

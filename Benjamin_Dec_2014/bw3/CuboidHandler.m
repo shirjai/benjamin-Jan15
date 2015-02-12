@@ -230,8 +230,10 @@
     
     //set a cuboid object from the incoming dictonary object
     Cuboid *submitCub = [[Cuboid alloc] init];
+    NSMutableArray *changes = [[NSMutableArray alloc] init];
+    for (NSString *rowId in [dictChanges allKeys]){
     
-    NSString *rowId = [[dictChanges allKeys] objectAtIndex:0];
+   // NSString *rowId = [[dictChanges allKeys] objectAtIndex:0];
     NSString *colParam = [dictChanges objectForKey:rowId];
     NSString *colName = [[colParam componentsSeparatedByString:@":"] objectAtIndex:0];
     NSString *colVal = [[colParam componentsSeparatedByString:@":"] objectAtIndex:1];
@@ -239,10 +241,12 @@
     Row *newRow = [[Row alloc]init];
     [newRow setRowid: [rowId intValue]];
     [newRow setColumnData:colName :colVal];
-
-    [submitCub SetTableId:2000284];
-    NSMutableArray *changes = [[NSMutableArray alloc] init];
     [changes addObject:newRow];
+    }
+    
+    [submitCub SetTableId:2000268];
+
+
     [submitCub SetRow:changes];
     
     [[[Submit alloc]init] SubmitAPI:submitCub];
