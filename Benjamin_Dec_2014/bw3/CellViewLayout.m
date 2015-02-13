@@ -96,8 +96,8 @@ static NSString * const cellWatch = @"cellWatch";
 
 - (void)prepareLayout
 {
-    // NSLog(@"**** Inside prepareLayout ****");
-    
+     NSLog(@"**** Inside prepareLayout ****");
+    //NSLog(@"**** _itemWidth **** ::: %f",_itemWidth);
     self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 1.0f);
     self.itemSize = CGSizeMake(_itemWidth, _itemHt);
     self.interItemSpacingY = 0.0f;
@@ -213,7 +213,7 @@ static NSString * const cellWatch = @"cellWatch";
 */
 - (CGSize)collectionViewContentSize
 {
-   // NSLog(@"**** Inside collectionViewContentSize ****");
+    NSLog(@"**** Inside collectionViewContentSize ****");
    /* NSInteger rowCount = [self.collectionView numberOfSections] / self.numberOfColumns;
     // make sure we count another row if one is only partially filled
     if ([self.collectionView numberOfSections] % self.numberOfColumns)

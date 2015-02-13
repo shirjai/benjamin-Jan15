@@ -43,8 +43,8 @@
 @synthesize watchArray,cubCellValue;
 
 /** pinch gesture**/
-const CGFloat kScaleLower = 1;
-const CGFloat kScaleUpper = 4.0;
+const CGFloat kScaleLower = 1.0;
+const CGFloat kScaleUpper = 1.5;
 /** pinch gesture**/
 
 CellViewController *selectedCell;
@@ -124,26 +124,8 @@ Boolean didValSaved = true;
 }
 
 
-/*
-#pragma mark - Accessors
-- (void)setScale:(CGFloat)scale
-{
-    // Make sure it doesn't go out of bounds
-    if (scale < kScaleLower)
-    {
-        _scale = kScaleLower;
-    }
-    else if (scale > kScaleUpper)
-    {
-        _scale = kScaleUpper;
-    }
-    else
-    {
-        _scale = scale;
-    }
-}
 
-*/
+
 -(void) keyboardDidShow: (NSNotification *)notif{
     
     //get keyboard size
@@ -363,7 +345,25 @@ Boolean didValSaved = true;
     NSLog(@"Inside didHighlightItemAtIndexPath");
 }
 
-
+/*
+#pragma mark - Accessors
+- (void)setScale:(CGFloat)scale
+{
+    // Make sure it doesn't go out of bounds
+    if (scale < kScaleLower)
+    {
+        _scale = kScaleLower;
+    }
+    else if (scale > kScaleUpper)
+    {
+        _scale = kScaleUpper;
+    }
+    else
+    {
+        _scale = scale;
+    }
+}
+ */
 
 #pragma mark - Gesture Recognizers
 - (void)didReceivePinchGesture:(UIPinchGestureRecognizer*)gesture
@@ -386,17 +386,28 @@ Boolean didValSaved = true;
     
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
-        gridLayout.itemSize = initialCellSize;
+        scaleStart = self.scale ;
+        NSLog(@"scaleStart::%f",scaleStart);
+        //gridLayout.itemSize = initialCellSize;
         return;
     }
     else if (gesture.state == UIGestureRecognizerStateChanged)
     {
-        NSLog(@"gesture.scale::%f",gesture.scale);
-        //NSLog(@"gesture.scale::%f",gesture.scale);
-         NSLog(@"itemWidth * gesture.scale::%f",gridLayout.itemWidth * gesture.scale);
+        
+        
         //[gridLayout setItemHt:gridLayout.itemHt * gesture.scale];
         //if (gesture.scale > 1.0)
-            [gridLayout setItemWidth:gridLayout.itemWidth * gesture.scale];
+        self.scale = scaleStart * gesture.scale ;
+        
+        NSLog(@"gesture.scale:%f",gesture.scale);
+        //NSLog(@"gridLayout.itemWidth * 1.1");
+        //NSLog(@"%f * 1.1 = %f",gridLayout.itemWidth, (gridLayout.itemWidth * 1.1));
+        //if (self.scale > 0.8 && self.scale < 1.2)
+        //[gridLayout setItemWidth:gridLayout.itemWidth * gesture.scale];
+        gesture.scale = 1.25;
+        [gridLayout setItemWidth:40.0 * gesture.scale];
+        [gridLayout setItemHt:35.0 * gesture.scale];
+        [gridLayout setNumberOfColumns:7];
         [gridLayout invalidateLayout];
         
         //[gridLayout prepareLayout];
@@ -512,9 +523,11 @@ Boolean didValSaved = true;
     // to dismiss keyboard
     [self.view endEditing:YES];
     [selectedCell.watchCellValue resignFirstResponder];
-    
-    [CuboidHandler submitNotes:dictChanges];
-    [self.CuboidCollectionView reloadData];
+    if (didValChange) {
+        [CuboidHandler submitNotes:dictChanges];
+        [self.CuboidCollectionView reloadData];
+    }
+
     
     //NSIndexPath *indexPath = [self.CuboidCollectionView indexPathForCell:self];
     //[collectionView.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
