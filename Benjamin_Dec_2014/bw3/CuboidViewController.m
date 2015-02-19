@@ -43,8 +43,8 @@
 @synthesize watchArray,cubCellValue;
 
 /** pinch gesture**/
-const CGFloat kScaleLower = 1.0;
-const CGFloat kScaleUpper = 1.5;
+const CGFloat kScaleLower = 0.5;
+const CGFloat kScaleUpper = 4.0;
 /** pinch gesture**/
 
 CellViewController *selectedCell;
@@ -88,9 +88,10 @@ Boolean didValSaved = true;
     [self registerForKeyboardNotifications];
     
     /** pinch gesture**/
+    
    // self.fitCells = NO;
    // self.animatedZooming = NO;
-    self.scale = 1.0;//(kScaleUpper + kScaleLower)/2.0;
+    self.scale = 1.0;           //(kScaleUpper + kScaleLower)/2.0;
     
     self.gesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didReceivePinchGesture:)];
     [self.CuboidCollectionView addGestureRecognizer:self.gesture];
@@ -98,7 +99,8 @@ Boolean didValSaved = true;
     
     /** pinch gesture**/
     
-    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
     
     //[self.watchCollectionView reloadData];
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_logo.png"]];
@@ -270,8 +272,8 @@ Boolean didValSaved = true;
    // cell.watchCellValue.textColor = [UIColor redColor];
     //NSLog(@"cellValue at Section%d Row%d = %@",indexPath.section,indexPath.row, cell.cellLabel.text);
     
-    [cell.layer setBorderWidth:1.0f];
-    [cell.layer setBorderColor:[UIColor blackColor].CGColor];
+    //[cell.layer setBorderWidth:1.0f];
+    //[cell.layer setBorderColor:[UIColor blackColor].CGColor];
     
     
     cell.watchCellValue.backgroundColor = [UIColor clearColor];
@@ -345,7 +347,7 @@ Boolean didValSaved = true;
     NSLog(@"Inside didHighlightItemAtIndexPath");
 }
 
-/*
+
 #pragma mark - Accessors
 - (void)setScale:(CGFloat)scale
 {
@@ -363,7 +365,7 @@ Boolean didValSaved = true;
         _scale = scale;
     }
 }
- */
+
 
 #pragma mark - Gesture Recognizers
 - (void)didReceivePinchGesture:(UIPinchGestureRecognizer*)gesture
@@ -398,16 +400,38 @@ Boolean didValSaved = true;
         //[gridLayout setItemHt:gridLayout.itemHt * gesture.scale];
         //if (gesture.scale > 1.0)
         self.scale = scaleStart * gesture.scale ;
+        [gridLayout setCellFontSize:(8 * _scale )];
         
+
         NSLog(@"gesture.scale:%f",gesture.scale);
-        //NSLog(@"gridLayout.itemWidth * 1.1");
-        //NSLog(@"%f * 1.1 = %f",gridLayout.itemWidth, (gridLayout.itemWidth * 1.1));
+        NSLog(@"gridLayout.scale:%f self.scale:%f",gridLayout.itemWidth,_scale);
+        NSLog(@"new width= %f",(gridLayout.itemWidth * _scale));
         //if (self.scale > 0.8 && self.scale < 1.2)
         //[gridLayout setItemWidth:gridLayout.itemWidth * gesture.scale];
-        gesture.scale = 1.25;
-        [gridLayout setItemWidth:40.0 * gesture.scale];
-        [gridLayout setItemHt:35.0 * gesture.scale];
-        [gridLayout setNumberOfColumns:7];
+        
+        //[gridLayout setItemWidth:gridLayout.itemWidth  * _scale];
+        //[gridLayout setItemHt:gridLayout.itemHt * _scale];
+        
+        [gridLayout setItemWidth:40.0  * _scale];
+        [gridLayout setItemHt:35.0 * _scale];
+        
+/*
+        if (gesture.scale > 1.0){
+            gesture.scale = 1.25;
+            [gridLayout setItemWidth:40.0 * gesture.scale];
+            [gridLayout setItemHt:35.0 * gesture.scale];
+            //[gridLayout setNumberOfColumns:7];
+        }
+        if (gesture.scale < 1.0) {
+            gesture.scale = 1.0;
+            [gridLayout setItemWidth:40.0 * gesture.scale];
+            [gridLayout setItemHt:35.0 * gesture.scale];
+            //[gridLayout setNumberOfColumns:8];
+        }
+
+ 
+                                            */
+        
         [gridLayout invalidateLayout];
         
         //[gridLayout prepareLayout];
@@ -484,14 +508,14 @@ Boolean didValSaved = true;
         long rowIndex       = prevCellIndexPath.row;
         NSString *colHdr    = watchArray[0][rowIndex];
         
-        NSLog(@"watchArray[%ld][%ld]=%@",sectionIndex,rowIndex,watchArray[sectionIndex][rowIndex]);
+        NSLog(@"previous value=%@",watchArray[sectionIndex][rowIndex]);
         
         watchArray[sectionIndex][rowIndex] = textView.text;
         NSString *val = [NSString stringWithFormat:@"%@:%@",colHdr,(NSString *)textView.text];
         
         [dictChanges setObject:val forKey:watchArray[sectionIndex][0]];
         
-       // didValSaved = true;
+        didValSaved = true;
 
     }
     else
@@ -523,9 +547,10 @@ Boolean didValSaved = true;
     // to dismiss keyboard
     [self.view endEditing:YES];
     [selectedCell.watchCellValue resignFirstResponder];
-    if (didValChange) {
+    if (didValSaved) {
         [CuboidHandler submitNotes:dictChanges];
         [self.CuboidCollectionView reloadData];
+        didValSaved = false;
     }
 
     

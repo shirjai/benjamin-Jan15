@@ -16,7 +16,7 @@
     @property (nonatomic) CGFloat itemHt;
     @property (nonatomic) CGFloat interItemSpacingY;
     @property (nonatomic) NSInteger numberOfColumns;
-
+    @property (nonatomic) float cellFontSize;
     /*for new header layout*/
     @property (nonatomic, copy) NSArray *rowColors;
 

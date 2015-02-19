@@ -20,6 +20,7 @@ static NSString * const cellWatch = @"cellWatch";
 
     @property (nonatomic, strong) NSDictionary *layoutInfo;
 
+
 @end
 
 
@@ -67,7 +68,10 @@ static NSString * const cellWatch = @"cellWatch";
     self.itemHt = 35.0;
     //self.itemSize = CGSizeMake(_itemWidth, _itemHt);
     self.interItemSpacingY = 0.0f;
-    self.numberOfColumns = 8;//[self.collectionView numberOfItemsInSection:[self.collectionView numberOfSections]] ;//3;
+    _cellFontSize = 10;
+    // 320 is the fixed width of the phone.
+    self.numberOfColumns =  floor(320 / self.itemWidth);
+        // 8;//[self.collectionView numberOfItemsInSection:[self.collectionView numberOfSections]] ;//3;
    
 }
 
@@ -96,7 +100,7 @@ static NSString * const cellWatch = @"cellWatch";
 
 - (void)prepareLayout
 {
-     NSLog(@"**** Inside prepareLayout ****");
+     //NSLog(@"**** Inside prepareLayout ****");
     //NSLog(@"**** _itemWidth **** ::: %f",_itemWidth);
     self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 1.0f);
     self.itemSize = CGSizeMake(_itemWidth, _itemHt);
@@ -115,13 +119,26 @@ static NSString * const cellWatch = @"cellWatch";
         NSInteger item = 0;
         
         for (;item < itemCount; item++) {
-            indexPath = [NSIndexPath indexPathForItem:item inSection:section];
             
+            indexPath = [NSIndexPath indexPathForItem:item inSection:section];
             hdrLayout *itemAttributes = [hdrLayout layoutAttributesForCellWithIndexPath:indexPath];
- 
+            
+            // UICollectionViewLayoutAttributes *itemAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
             
             itemAttributes.frame = [self frameForCellWatchAtIndexPath:indexPath];
-            
+
+            /*
+            if (section == 0) { // We stick the first row
+                CGRect frame = itemAttributes.frame;
+                frame.origin.y = 0;
+                itemAttributes.frame = frame;
+                
+            }
+            if (item == 0) { // We stick the first column
+                CGRect frame = itemAttributes.frame;
+                frame.origin.x = self.collectionView.contentOffset.x;
+                itemAttributes.frame = frame;
+            } */
             cellLayoutInfo[indexPath] = itemAttributes;
             
         }
@@ -137,16 +154,6 @@ static NSString * const cellWatch = @"cellWatch";
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     //NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
-   NSMutableArray *attributes = [self layoutAttributesForElementsInRect_old:rect];
-
-    return attributes;
-    
-}
-
-
-
-- (NSMutableArray *)layoutAttributesForElementsInRect_old:(CGRect)rect
-{
     NSMutableArray *allAttributes = [NSMutableArray arrayWithCapacity:self.layoutInfo.count];
     
     [self.layoutInfo enumerateKeysAndObjectsUsingBlock:^(NSString *elementIdentifier,
@@ -154,32 +161,67 @@ static NSString * const cellWatch = @"cellWatch";
                                                          BOOL *stop)
      {
          [elementsInfo enumerateKeysAndObjectsUsingBlock:^(NSIndexPath *indexPath,
+                                                           //UICollectionViewLayoutAttributes *attributes,
                                                            hdrLayout *attributes,
                                                            BOOL *innerStop)
           {
               if (CGRectIntersectsRect(rect, attributes.frame))
               {
-                  // set the header color.
-                  if(indexPath.section == 0 ){
-                      attributes.bkgrndClr = [UIColor brownColor];
-                      attributes.dataFont = [UIFont italicSystemFontOfSize:11];
-                     // CellViewController *cell = (CellViewController *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"CuboidCell" forIndexPath:indexPath];
-                     // cell.watchCellValue.font = [UIFont boldSystemFontOfSize:12];
-                  }
-                  else
-                      attributes.dataFont = [UIFont systemFontOfSize:10];
+                  
+
+                      UICollectionView * const cv = self.collectionView;
+                      CGPoint const contentOffset = cv.contentOffset;
+                      CGPoint origin = attributes.frame.origin;
+                      if(indexPath.item==0)
+                      {
+                          origin.x = contentOffset.x;
+                          attributes.zIndex = 1022;
+                          
+                          attributes.bkgrndClr = [UIColor lightGrayColor];
+                      }
+                      if(indexPath.section==0)
+                      {
+                          origin.y = contentOffset.y;
+                          attributes.zIndex = 1023;
+                          if(indexPath.item==0)
+                              attributes.zIndex = 1024;
+                          
+                          attributes.bkgrndClr = [UIColor lightGrayColor];
+                          attributes.dataFont = [UIFont italicSystemFontOfSize:_cellFontSize+1];
+                      }
+                      else
+                      attributes.dataFont = [UIFont systemFontOfSize:_cellFontSize];
+                  
+                      attributes.frame = (CGRect)
+                      {
+                          .origin = origin,
+                          .size = attributes.frame.size
+                      };
+                  
+                  
+                              /*
+                   // set the header color.
+                   if(indexPath.section == 0 ){
+                   attributes.bkgrndClr = [UIColor lightGrayColor];
+                   attributes.dataFont = [UIFont italicSystemFontOfSize:_cellFontSize+1];
+                   // CellViewController *cell = (CellViewController *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"CuboidCell" forIndexPath:indexPath];
+                   // cell.watchCellValue.font = [UIFont boldSystemFontOfSize:12];
+                   }
+                   else
+                       attributes.dataFont = [UIFont systemFontOfSize:_cellFontSize]; 
+                               */
                   
                   [allAttributes addObject:attributes];
               }
           }];
      }];
     
-    return allAttributes;
+    return [allAttributes copy];
     
 }
 
 
-
+/*
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
 
 
@@ -189,7 +231,7 @@ static NSString * const cellWatch = @"cellWatch";
     //return self.layoutInfo[cellWatch][indexPath];
 
     
-}
+} */
 
 
 /*
@@ -213,7 +255,7 @@ static NSString * const cellWatch = @"cellWatch";
 */
 - (CGSize)collectionViewContentSize
 {
-    NSLog(@"**** Inside collectionViewContentSize ****");
+    //NSLog(@"**** Inside collectionViewContentSize ****");
    /* NSInteger rowCount = [self.collectionView numberOfSections] / self.numberOfColumns;
     // make sure we count another row if one is only partially filled
     if ([self.collectionView numberOfSections] % self.numberOfColumns)
@@ -262,13 +304,15 @@ static NSString * const cellWatch = @"cellWatch";
     float cellWidth = self.itemSize.width;
     // NSLog(@"frameForCellWatchAtIndexPath- section[%ld]item[%ld]",row,column);
     
-    CGFloat spacingX =  self.collectionView.bounds.size.width -
-    self.itemInsets.left -
-    self.itemInsets.right -
-    (self.numberOfColumns * cellWidth);
+    // set to 0.0 to calculate correct spacing on zoom
+    CGFloat spacingX =  0.0;// self.collectionView.bounds.size.width -
     
+    // commented as the spacing was calculated incorrectly on zoom
+     /*CGFloat spacingX =   self.collectionView.bounds.size.width - self.itemInsets.left - self.itemInsets.right - (self.numberOfColumns * cellWidth);
     if (self.numberOfColumns > 1)
-        spacingX = spacingX / (self.numberOfColumns - 1);
+        spacingX = spacingX / (self.numberOfColumns - 1); */
+    
+    
     
     CGFloat originX = floorf(self.itemInsets.left + (cellWidth + spacingX) * column);
     

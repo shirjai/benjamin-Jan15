@@ -37,10 +37,14 @@
         
         
         watchCellValue = [[UITextView alloc] initWithFrame:self.bounds];
+        //watchCellValue.textAlignment =      ;
+        
+        [self.layer setBorderWidth:1.0f];
         //self.watchCellValue.userInteractionEnabled = NO;
         [self addSubview:watchCellValue];
         
         UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped)];
+        
        // tap.delaysTouchesBegan = YES;
        // tap.numberOfTapsRequired = 2;
         
@@ -49,6 +53,7 @@
         //watchCellValue.backgroundColor = [UIColor brownColor];
         
         self.autoresizesSubviews = YES;
+        
        // self.contentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight);
        // self.contentView.translatesAutoresizingMaskIntoConstraints = YES;
         
@@ -106,8 +111,12 @@
     if (!self.backgroundView) {
         self.backgroundView = [[UIView alloc] init];
     }
+    
     self.backgroundView.backgroundColor = layoutAttributes.bkgrndClr;
     self.watchCellValue.font = layoutAttributes.dataFont;
+    
+    //to resize the textview fram on zoom
+    watchCellValue.frame    = self.bounds;
 }
 
 

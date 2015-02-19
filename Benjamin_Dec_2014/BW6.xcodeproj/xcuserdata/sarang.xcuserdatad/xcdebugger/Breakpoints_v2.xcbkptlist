@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewController.m"
-            timestampString = "444322791.385767"
+            timestampString = "445776140.456147"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewController.m"
-            timestampString = "444322791.385767"
+            timestampString = "445944719.581473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "-tapped"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "-keyboardDidShow:"
             landmarkType = "5">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "445"
-            endingLineNumber = "445"
+            startingLineNumber = "469"
+            endingLineNumber = "469"
             landmarkName = "-didReceivePinchGesture:"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
             landmarkName = "-textViewDidEndEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "492"
-            endingLineNumber = "492"
+            startingLineNumber = "516"
+            endingLineNumber = "516"
             landmarkName = "-textViewDidEndEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "510"
-            endingLineNumber = "510"
+            startingLineNumber = "534"
+            endingLineNumber = "534"
             landmarkName = "-textViewDidEndEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "515"
-            endingLineNumber = "515"
+            startingLineNumber = "539"
+            endingLineNumber = "539"
             landmarkName = "-textViewDidEndEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "459"
-            endingLineNumber = "459"
+            startingLineNumber = "483"
+            endingLineNumber = "483"
             landmarkName = "-textViewDidBeginEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "466"
-            endingLineNumber = "466"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
             landmarkName = "@implementation CuboidViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "468"
-            endingLineNumber = "468"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
             landmarkName = "-textViewDidChange:"
             landmarkType = "5">
          </BreakpointContent>
@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "464"
-            endingLineNumber = "464"
+            startingLineNumber = "488"
+            endingLineNumber = "488"
             landmarkName = "-textViewDidBeginEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -474,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "483"
-            endingLineNumber = "483"
+            startingLineNumber = "507"
+            endingLineNumber = "507"
             landmarkName = "-textViewDidEndEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "480"
-            endingLineNumber = "480"
+            startingLineNumber = "504"
+            endingLineNumber = "504"
             landmarkName = "-textViewDidEndEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -538,11 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "-keyboardDidShow:"
             landmarkType = "5">
          </BreakpointContent>
@@ -554,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
+            timestampString = "445866398.179817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "-setup"
             landmarkType = "5">
          </BreakpointContent>
@@ -570,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -586,11 +586,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "-numberOfSectionsInCollectionView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -602,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "-collectionView:numberOfItemsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -618,13 +618,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "445525850.219942"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
-            landmarkName = "-collectionViewContentSize"
-            landmarkType = "5">
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "@implementation CellViewLayout"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -634,11 +634,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -650,11 +650,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "445525850.219942"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "-collectionViewContentSize"
             landmarkType = "5">
          </BreakpointContent>
@@ -666,11 +666,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "445525850.219942"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "-collectionViewContentSize"
             landmarkType = "5">
          </BreakpointContent>
@@ -682,11 +682,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "445525850.219942"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "-collectionViewContentSize"
             landmarkType = "5">
          </BreakpointContent>
@@ -794,11 +794,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
+            timestampString = "446030423.924228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -810,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444740402.972002"
+            timestampString = "445866398.179817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
@@ -826,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444740402.972002"
+            timestampString = "445866398.179817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-initWithCoder:"
             landmarkType = "5">
          </BreakpointContent>
@@ -852,11 +852,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
+            timestampString = "446030423.924228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -884,11 +884,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -900,11 +900,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -916,11 +916,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewController.m"
-            timestampString = "444322791.385767"
+            timestampString = "445944719.581473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "-initWithFrame:"
             landmarkType = "5">
          </BreakpointContent>
@@ -932,11 +932,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -948,13 +948,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "@implementation CellViewLayout"
-            landmarkType = "3">
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "-layoutAttributesForElementsInRect:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -964,11 +964,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewController.m"
-            timestampString = "444322791.385767"
+            timestampString = "445944719.581473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "-initWithFrame:"
             landmarkType = "5">
          </BreakpointContent>
@@ -980,11 +980,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445429355.611603"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "-didReceivePinchGesture:"
             landmarkType = "5">
          </BreakpointContent>
@@ -996,11 +996,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445429355.611603"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
             landmarkName = "-didReceivePinchGesture:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1012,11 +1012,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
             landmarkName = "@implementation CuboidViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1076,11 +1076,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewController.m"
-            timestampString = "444322791.385767"
+            timestampString = "445944719.581473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "-initWithFrame:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1107,28 +1107,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "-layoutAttributesForElementsInRect_old:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445497854.440488"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
+            startingLineNumber = "401"
+            endingLineNumber = "401"
             landmarkName = "-didReceivePinchGesture:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1140,11 +1124,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445429355.611603"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
             landmarkName = "-didReceivePinchGesture:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1156,11 +1140,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444740402.972002"
+            timestampString = "445866398.179817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-initWithCoder:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1172,11 +1156,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
+            timestampString = "445866398.179817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-setCellItemSize::"
             landmarkType = "5">
          </BreakpointContent>
@@ -1188,11 +1172,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
+            timestampString = "445866398.179817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -1204,11 +1188,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444740402.972002"
+            timestampString = "445866398.179817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-initWithCoder:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1220,11 +1204,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
+            timestampString = "445866398.179817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "@implementation CellViewLayout"
             landmarkType = "3">
          </BreakpointContent>
@@ -1236,11 +1220,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "445525850.219942"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "@implementation CellViewLayout"
             landmarkType = "3">
          </BreakpointContent>
@@ -1284,11 +1268,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "445525850.219942"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "@implementation CellViewLayout"
             landmarkType = "3">
          </BreakpointContent>
@@ -1300,11 +1284,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
+            timestampString = "446030423.924228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -1316,11 +1300,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "412"
-            endingLineNumber = "412"
+            startingLineNumber = "436"
+            endingLineNumber = "436"
             landmarkName = "-didReceivePinchGesture:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1332,11 +1316,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
+            startingLineNumber = "329"
+            endingLineNumber = "329"
             landmarkName = "@implementation CuboidViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1348,11 +1332,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "330"
-            endingLineNumber = "330"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
             landmarkName = "@implementation CuboidViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1364,11 +1348,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
+            timestampString = "445866398.179817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -1380,11 +1364,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1396,13 +1380,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "445525850.219942"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "-shouldInvalidateLayoutForBoundsChange:"
-            landmarkType = "5">
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "@implementation CellViewLayout"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1492,11 +1476,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "444824855.312562"
+            timestampString = "445866398.179817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "@implementation CellViewLayout"
             landmarkType = "3">
          </BreakpointContent>
@@ -1508,11 +1492,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "445525850.219942"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "-collectionViewContentSize"
             landmarkType = "5">
          </BreakpointContent>
@@ -1524,55 +1508,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445497854.440488"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
-            landmarkName = "-didReceivePinchGesture:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "411"
-            endingLineNumber = "411"
-            landmarkName = "-didReceivePinchGesture:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bw3/CellViewLayout.m"
-            timestampString = "444828779.303333"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "-prepareLayout"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bw3/CuboidViewController.m"
-            timestampString = "445497854.440488"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "396"
@@ -1588,11 +1524,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445497854.440488"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
+            startingLineNumber = "435"
+            endingLineNumber = "435"
+            landmarkName = "-didReceivePinchGesture:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "445866398.179817"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-prepareLayout"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CuboidViewController.m"
+            timestampString = "446045004.620145"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "-didReceivePinchGesture:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1604,11 +1572,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445511459.728043"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "-didReceivePinchGesture:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1620,11 +1588,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "476"
-            endingLineNumber = "476"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
+            landmarkName = "-didReceivePinchGesture:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CuboidViewController.m"
+            timestampString = "446045004.620145"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "500"
+            endingLineNumber = "500"
             landmarkName = "-textViewDidEndEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1636,11 +1620,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1652,11 +1636,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445500397.031416"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1668,11 +1652,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "469"
-            endingLineNumber = "469"
+            startingLineNumber = "493"
+            endingLineNumber = "493"
             landmarkName = "-textViewDidChange:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1684,11 +1668,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "455"
-            endingLineNumber = "455"
+            startingLineNumber = "479"
+            endingLineNumber = "479"
             landmarkName = "-textViewDidBeginEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1700,11 +1684,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "524"
-            endingLineNumber = "524"
+            startingLineNumber = "548"
+            endingLineNumber = "548"
             landmarkName = "-submitData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1716,11 +1700,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CuboidViewController.m"
-            timestampString = "445513528.337508"
+            timestampString = "446045004.620145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "525"
-            endingLineNumber = "525"
+            startingLineNumber = "549"
+            endingLineNumber = "549"
             landmarkName = "-submitData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1764,11 +1748,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "445525850.219942"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
             landmarkName = "-frameForCellWatchAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1780,12 +1764,172 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bw3/CellViewLayout.m"
-            timestampString = "445525850.219942"
+            timestampString = "446046479.226651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
+            landmarkName = "@implementation CellViewLayout"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "446046479.226651"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
+            landmarkName = "-collectionViewContentSize"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "446030423.924228"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-layoutAttributesForElementsInRect:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "446046479.226651"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "@implementation CellViewLayout"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "446030423.924228"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "-layoutAttributesForElementsInRect:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "446046479.226651"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
             landmarkName = "-frameForCellWatchAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "446046479.226651"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
+            landmarkName = "-frameForCellWatchAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "446046479.226651"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "-frameForCellWatchAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "445866398.179817"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-setup"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CuboidViewController.m"
+            timestampString = "446045004.620145"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
+            landmarkName = "-setScale:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bw3/CellViewLayout.m"
+            timestampString = "446030419.416767"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
