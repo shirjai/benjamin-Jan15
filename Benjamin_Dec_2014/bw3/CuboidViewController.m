@@ -52,7 +52,7 @@ NSIndexPath *prevCellIndexPath;
 NSIndexPath *selectedCellIndexPath;
 NSMutableDictionary *dictChanges;
 Boolean didValChange = false;
-Boolean didValSaved = true;
+Boolean didValSaved = false;
 
 
 
@@ -87,6 +87,7 @@ Boolean didValSaved = true;
     
     [self registerForKeyboardNotifications];
     
+    
     /** pinch gesture**/
     
    // self.fitCells = NO;
@@ -115,6 +116,17 @@ Boolean didValSaved = true;
 
 
     
+}
+
+-(void) tappedCell {
+    
+    //[self textViewDidBeginEditing:watchCellValue];
+    //UICollectionView *collectionView = (UICollectionView*)self.superview;
+    NSIndexPath *indexPath = [self.CuboidCollectionView indexPathForCell:self];
+    //[self.CuboidCollectionView  didSelectItemAtIndexPath:indexPath];
+    
+    //[self.watchCellValue becomeFirstResponder];
+    NSLog(@"Back to tapped");
 }
 
 
@@ -302,6 +314,7 @@ Boolean didValSaved = true;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    /*
     //if(!didValChange){
         selectedCell = (CellViewController *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CuboidCell" forIndexPath:indexPath];
     
@@ -312,7 +325,8 @@ Boolean didValSaved = true;
         
         NSLog(@"current display value ::::: %@",selectedCell.watchCellValue.text);
         NSLog(@"stored array value ::::: %@",watchArray[indexPath.section][indexPath.row]);
-        
+    
+    */
       //  NSLog(@"indexPath.section ::::: %ld",(long)indexPath.section);
       //  NSLog(@"row ::::: %ld",(long)indexPath.row);
     
@@ -476,6 +490,7 @@ Boolean didValSaved = true;
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     
     NSLog(@"Inside textViewDidBEGINEditing");
+    
     
     //as the didSelectIndexPath is invoked before textViewDidEndEditing
     prevCellIndexPath = selectedCellIndexPath;

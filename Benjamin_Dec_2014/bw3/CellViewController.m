@@ -34,8 +34,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        
-        
         watchCellValue = [[UITextView alloc] initWithFrame:self.bounds];
         //watchCellValue.textAlignment =      ;
         

@@ -186,11 +186,11 @@ static NSString * const cellWatch = @"cellWatch";
                           if(indexPath.item==0)
                               attributes.zIndex = 1024;
                           
-                          attributes.bkgrndClr = [UIColor lightGrayColor];
+                          attributes.bkgrndClr = [UIColor blueColor];
                           attributes.dataFont = [UIFont italicSystemFontOfSize:_cellFontSize+1];
                       }
                       else
-                      attributes.dataFont = [UIFont systemFontOfSize:_cellFontSize];
+                          attributes.dataFont = [UIFont systemFontOfSize:_cellFontSize];
                   
                       attributes.frame = (CGRect)
                       {
