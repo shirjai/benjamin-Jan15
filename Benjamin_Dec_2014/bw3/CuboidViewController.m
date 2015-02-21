@@ -27,7 +27,7 @@
     UIRefreshControl *refreshControlObj;
 }
 
-    @property (strong, nonatomic) IBOutlet UICollectionView *CuboidCollectionView;
+  //  @property (strong, nonatomic) IBOutlet UICollectionView *CuboidCollectionView;
     @property (nonatomic, strong) NSString* cubCellValue;
 
     /** pinch gesture**/
@@ -314,7 +314,7 @@ Boolean didValSaved = false;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    /*
+    
     //if(!didValChange){
         selectedCell = (CellViewController *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CuboidCell" forIndexPath:indexPath];
     
@@ -323,10 +323,10 @@ Boolean didValSaved = false;
         
        // didValSaved = false;
         
-        NSLog(@"current display value ::::: %@",selectedCell.watchCellValue.text);
+        NSLog(@"previous display value ::::: %@",selectedCell.watchCellValue.text);
         NSLog(@"stored array value ::::: %@",watchArray[indexPath.section][indexPath.row]);
     
-    */
+    
       //  NSLog(@"indexPath.section ::::: %ld",(long)indexPath.section);
       //  NSLog(@"row ::::: %ld",(long)indexPath.row);
     

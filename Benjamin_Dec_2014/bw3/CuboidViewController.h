@@ -16,5 +16,5 @@
 @property (nonatomic,assign) CGFloat scale;
 @property (nonatomic,assign) BOOL fitCells;
 @property (nonatomic,assign) BOOL animatedZooming;
-
+@property (strong, nonatomic) IBOutlet UICollectionView *CuboidCollectionView;
 @end
