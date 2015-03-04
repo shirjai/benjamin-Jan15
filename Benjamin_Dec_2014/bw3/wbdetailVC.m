@@ -106,6 +106,15 @@
     cell.wbname.text = [SheetNames objectAtIndex:indexPath.row];
     cell.desc.text = [NSString stringWithFormat:@"Updated By %@ on %@",[UpdateBy objectAtIndex:indexPath.row],[UpdateOn objectAtIndex:indexPath.row]];
     
+    
+    /**added by shirish to open the cuboid 3/4/15 **/
+    UIButton *openCuboid = [UIButton buttonWithType:UIButtonTypeSystem];
+    openCuboid.frame = CGRectMake(250.0f, 0.5f, 75.0f, 30.0f);
+    [openCuboid setTitle:@"Open" forState:UIControlStateNormal];
+    [cell addSubview:openCuboid];
+    [openCuboid addTarget:self action:@selector(cuboidView:) forControlEvents:UIControlEventTouchUpInside];
+    /**added by shirish to open the cuboid 3/4/15 **/
+    
     return cell;
 }
 
@@ -300,4 +309,13 @@
         [alert show];
     }
 }
+
+  /**added by shirish to open the cuboid 3/4/15 **/
+# pragma mark - Boardwalk Methods
+
+- (void)cuboidView {
+    
+}
+  /**added by shirish to open the cuboid 3/4/15 **/
+
 @end

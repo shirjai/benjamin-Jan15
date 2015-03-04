@@ -269,15 +269,17 @@ Boolean didValSaved = false;
     
     CellViewController *cell = (CellViewController *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CuboidCell" forIndexPath:indexPath];
 
-    cell.contentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight);
-    cell.contentView.translatesAutoresizingMaskIntoConstraints = YES;
+    
+   // commented for scroll view to set at top by default
+   /* cell.contentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight);
+    cell.contentView.translatesAutoresizingMaskIntoConstraints = YES; */
     
    //cell.cellLabel.frame=CGRectMake(12, 13, 98, 0);
     
     //cell.cellLabel.text=watchArray[indexPath.section][indexPath.row];
     //cell.watchCellValue = [[UITextView alloc] initWithFrame:cell.bounds];
     
-    cell.watchCellValue.text = watchArray[indexPath.section][indexPath.row];
+  
     //cell.watchCellValue.textAlignment = NSTextAlignmentLeft;
     
     
@@ -287,9 +289,9 @@ Boolean didValSaved = false;
     //[cell.layer setBorderWidth:1.0f];
     //[cell.layer setBorderColor:[UIColor blackColor].CGColor];
     
-    
+    cell.watchCellValue.text = watchArray[indexPath.section][indexPath.row];
     cell.watchCellValue.backgroundColor = [UIColor clearColor];
-    
+    cell.watchCellValue.delegate = self;    
 
     
     //cell.watchCellValue.lineBreakMode=NSLineBreakByWordWrapping;
@@ -303,7 +305,7 @@ Boolean didValSaved = false;
     //[cell.cellLabel sizeThatFits:textSize];
     
    // [cell.watchCellValue sizeToFit];
-    cell.watchCellValue.delegate = self;
+
     
     
    // NSLog(@"value ::::: %@",cell.watchCellValue.text);
@@ -404,6 +406,9 @@ Boolean didValSaved = false;
     {
         scaleStart = self.scale ;
         NSLog(@"scaleStart::%f",scaleStart);
+        
+        // disable scroll when pinch has started
+        self.CuboidCollectionView.scrollEnabled = NO;
         //gridLayout.itemSize = initialCellSize;
         return;
     }
@@ -452,7 +457,11 @@ Boolean didValSaved = false;
         //[gridLayout collectionViewContentSize];
         //[gridLayout layoutAttributesForElementsInRect:CGRectMake(0, -568, 320, 1136)];
     }
-    
+    else if ((gesture.state == UIGestureRecognizerStateEnded) || (gesture.state == UIGestureRecognizerStateCancelled))
+    {
+        // enable scrolling after pinch is completed
+        self.CuboidCollectionView.scrollEnabled = YES;
+    }
     //[self.CuboidCollectionView reloadData];
     
     /*
@@ -484,6 +493,12 @@ Boolean didValSaved = false;
         
     } */
     
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    
+    [self.CuboidCollectionView.collectionViewLayout invalidateLayout];
 }
 
 #pragma mark - textView Methods

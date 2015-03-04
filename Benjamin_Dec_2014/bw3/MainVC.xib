@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -129,10 +129,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shG-9G-4WY">
-                    <rect key="frame" x="210" y="279" width="59" height="30"/>
-                    <state key="normal" title="Cuboid">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <rect key="frame" x="201" y="285" width="68" height="30"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="Cuboid"/>
                     <connections>
                         <action selector="cuboid:" destination="-1" eventType="touchUpInside" id="OmQ-iu-knl"/>
                     </connections>
@@ -155,7 +154,7 @@
                 <constraint firstItem="119" firstAttribute="top" secondItem="1" secondAttribute="top" constant="102" id="854"/>
                 <constraint firstItem="242" firstAttribute="top" secondItem="1" secondAttribute="top" constant="224" id="855"/>
             </constraints>
-            <point key="canvasLocation" x="-214" y="-56"/>
+            <point key="canvasLocation" x="-387" y="-54"/>
         </view>
     </objects>
     <resources>

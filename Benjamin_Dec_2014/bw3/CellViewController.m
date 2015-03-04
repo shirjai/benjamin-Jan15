@@ -17,11 +17,6 @@
 @synthesize watchCellValue;
 
 
-- (void)awakerFromNib {
-    
-    
-    self.contentView.autoresizingMask= (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-}
 /*
 - (void)setBounds:(CGRect)bounds {
     [super setBounds:bounds];
@@ -41,7 +36,9 @@
         //self.watchCellValue.userInteractionEnabled = NO;
         [self addSubview:watchCellValue];
         
-        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped)];
+        //self.contentView.autoresizingMask= (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+ 
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
         
        // tap.delaysTouchesBegan = YES;
        // tap.numberOfTapsRequired = 2;
@@ -80,15 +77,15 @@
     return self;
 }
 
--(void) tapped {
+-(void) tapped:(UITapGestureRecognizer*) gesture{
     
     //[self textViewDidBeginEditing:watchCellValue];
     UICollectionView *collectionView = (UICollectionView*)self.superview;
     NSIndexPath *indexPath = [collectionView indexPathForCell:self];
     [collectionView.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
-    
+
     [self.watchCellValue becomeFirstResponder];
-    NSLog(@"Back to tapped");
+    //NSLog(@"Back to tapped");
 }
 
 
@@ -113,8 +110,12 @@
     self.backgroundView.backgroundColor = layoutAttributes.bkgrndClr;
     self.watchCellValue.font = layoutAttributes.dataFont;
     
-    //to resize the textview fram on zoom
+    //to resize the textview frame on zoom
     watchCellValue.frame    = self.bounds;
+    
+    //to display the first line of the text on zoom
+    watchCellValue.contentOffset = CGPointZero;
+
 }
 
 

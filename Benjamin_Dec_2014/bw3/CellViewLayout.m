@@ -68,23 +68,14 @@ static NSString * const cellWatch = @"cellWatch";
     self.itemHt = 35.0;
     //self.itemSize = CGSizeMake(_itemWidth, _itemHt);
     self.interItemSpacingY = 0.0f;
-    _cellFontSize = 10;
-    // 320 is the fixed width of the phone.
-    self.numberOfColumns =  floor(320 / self.itemWidth);
+    _cellFontSize = 8;
+    
+    
+    // 320 is the fixed width of the phone in potrait mode.
+    //CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    //self.numberOfColumns =  floor(screenWidth / self.itemWidth);
         // 8;//[self.collectionView numberOfItemsInSection:[self.collectionView numberOfSections]] ;//3;
    
-}
-
-- (void)setCellItemSize :(CGSize)size :(int)colCntParam{
-
-    
-    //cellHt = size.height;
-    //cellWidth = size.width;
-    //colCnt = colCntParam;
-    //[self invalidateLayout];
-    
-    //return size;
-    
 }
 
 
@@ -105,7 +96,11 @@ static NSString * const cellWatch = @"cellWatch";
     self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 1.0f);
     self.itemSize = CGSizeMake(_itemWidth, _itemHt);
     self.interItemSpacingY = 0.0f;
-    //self.numberOfColumns = colCnt;
+    
+    // 320 is the fixed width of the phone in potrait mode.
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    self.numberOfColumns =  floor(screenWidth / self.itemWidth);
+    
     
     NSMutableDictionary *newLayoutInfo = [NSMutableDictionary dictionary];
     NSMutableDictionary *cellLayoutInfo = [NSMutableDictionary dictionary];
@@ -168,7 +163,7 @@ static NSString * const cellWatch = @"cellWatch";
               if (CGRectIntersectsRect(rect, attributes.frame))
               {
                   
-
+/*
                       UICollectionView * const cv = self.collectionView;
                       CGPoint const contentOffset = cv.contentOffset;
                       CGPoint origin = attributes.frame.origin;
@@ -177,7 +172,7 @@ static NSString * const cellWatch = @"cellWatch";
                           origin.x = contentOffset.x;
                           attributes.zIndex = 1022;
                           
-                          attributes.bkgrndClr = [UIColor lightGrayColor];
+                          //attributes.bkgrndClr = [UIColor lightGrayColor];
                       }
                       if(indexPath.section==0)
                       {
@@ -186,7 +181,8 @@ static NSString * const cellWatch = @"cellWatch";
                           if(indexPath.item==0)
                               attributes.zIndex = 1024;
                           
-                          attributes.bkgrndClr = [UIColor blueColor];
+                          attributes.bkgrndClr = [UIColor colorWithRed:0/255.0 green:128/255.0 blue:255/255.0 alpha:1.0];
+                          
                           attributes.dataFont = [UIFont italicSystemFontOfSize:_cellFontSize+1];
                       }
                       else
@@ -197,20 +193,22 @@ static NSString * const cellWatch = @"cellWatch";
                           .origin = origin,
                           .size = attributes.frame.size
                       };
+                  */
                   
                   
-                              /*
                    // set the header color.
                    if(indexPath.section == 0 ){
-                   attributes.bkgrndClr = [UIColor lightGrayColor];
+                   attributes.bkgrndClr = [UIColor colorWithRed:0 green:175/255.0 blue:1 alpha:1.0];
+                       
                    attributes.dataFont = [UIFont italicSystemFontOfSize:_cellFontSize+1];
+
                    // CellViewController *cell = (CellViewController *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"CuboidCell" forIndexPath:indexPath];
                    // cell.watchCellValue.font = [UIFont boldSystemFontOfSize:12];
                    }
                    else
                        attributes.dataFont = [UIFont systemFontOfSize:_cellFontSize]; 
-                               */
                   
+
                   [allAttributes addObject:attributes];
               }
           }];

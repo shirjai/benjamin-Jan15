@@ -23,6 +23,7 @@
 		8A353F751A5D1BD9004FAD9F /* CellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A353F6C1A5D1BD9004FAD9F /* CellViewController.m */; };
 		8A353F771A5D1BD9004FAD9F /* CuboidViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A353F701A5D1BD9004FAD9F /* CuboidViewController.xib */; };
 		8A353F791A5D1C39004FAD9F /* CuboidProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A353F781A5D1C39004FAD9F /* CuboidProperties.plist */; };
+		8AC1D8331A9FFCE400AB46BF /* cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1D8321A9FFCE400AB46BF /* cloud.png */; };
 		AC06DA8419AD603C0000DD46 /* WorkBook.m in Sources */ = {isa = PBXBuildFile; fileRef = AC06DA8319AD603C0000DD46 /* WorkBook.m */; };
 		AC06DA8819AD60780000DD46 /* workbookclass.m in Sources */ = {isa = PBXBuildFile; fileRef = AC06DA8619AD60780000DD46 /* workbookclass.m */; };
 		AC06DA8919AD60780000DD46 /* workbookclass.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC06DA8719AD60780000DD46 /* workbookclass.xib */; };
@@ -133,6 +134,7 @@
 		8A353F6D1A5D1BD9004FAD9F /* CellViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellViewLayout.h; sourceTree = "<group>"; };
 		8A353F701A5D1BD9004FAD9F /* CuboidViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CuboidViewController.xib; sourceTree = "<group>"; };
 		8A353F781A5D1C39004FAD9F /* CuboidProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CuboidProperties.plist; sourceTree = "<group>"; };
+		8AC1D8321A9FFCE400AB46BF /* cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.png; sourceTree = "<group>"; };
 		AC06DA8219AD603C0000DD46 /* WorkBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkBook.h; sourceTree = "<group>"; };
 		AC06DA8319AD603C0000DD46 /* WorkBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkBook.m; sourceTree = "<group>"; };
 		AC06DA8519AD60780000DD46 /* workbookclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = workbookclass.h; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 		ACDBF68519346CE9001FF4ED /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8AC1D8321A9FFCE400AB46BF /* cloud.png */,
 				AC75171B1A48BECD0040DA06 /* bg_logo.png */,
 				AC7517171A48B5C80040DA06 /* beos_eyeball.png */,
 				ACEFE3171A0973CF00036C4E /* notes.png */,
@@ -713,6 +716,7 @@
 				8A0D87441A5C2A6800D3D914 /* watchViewController.xib in Resources */,
 				AC69B8FA19F70F89007858AA /* AllUpdatesVC.xib in Resources */,
 				8A353F711A5D1BD9004FAD9F /* CellView.xib in Resources */,
+				8AC1D8331A9FFCE400AB46BF /* cloud.png in Resources */,
 				8A353F791A5D1C39004FAD9F /* CuboidProperties.plist in Resources */,
 				AC69B90019F71EF6007858AA /* AllUpdCell.xib in Resources */,
 				AC69B90919F9F543007858AA /* MissingUpdatesVC.xib in Resources */,
