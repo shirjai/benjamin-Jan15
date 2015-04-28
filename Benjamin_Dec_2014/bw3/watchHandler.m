@@ -20,6 +20,8 @@
     
     NSMutableArray *watchRowArray = [[NSMutableArray alloc]init];
     
+    NSCharacterSet *chngSeparator = [NSCharacterSet
+                                characterSetWithCharactersInString:@"\u00B5"];
 
     
     //get watch properties
@@ -147,9 +149,10 @@
                     strRowId = [mutdictRow valueForKey:key];
             }
             
-            [arrRow addObject:[NSString stringWithFormat:@"%@:%d",col1,0]];
-            [arrRow addObject:[NSString stringWithFormat:@"%@:%d",col2,0]];
-            [arrRow addObject:[NSString stringWithFormat:@"%@:%d",col3,0]];
+            
+            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B50",col1]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B50",col2]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B50",col3]];
             [arrRow addObject:strRowId];
             
             [watchRowArray addObject:arrRow];

@@ -24,6 +24,8 @@
 ,UICollectionViewDelegateFlowLayout>
 {
     UIRefreshControl *refreshControlObj;
+    
+    
 }
 
 @property (strong, nonatomic) IBOutlet UICollectionView *watchCollectionView;
@@ -36,6 +38,8 @@
 @implementation watchViewController
 
 @synthesize watchArray;
+
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -121,15 +125,19 @@
    cell.cellLabel.frame=CGRectMake(5, 13, 98, 0);
     
     NSString *cellValue = watchArray[indexPath.section][indexPath.row];
-    NSRange chngSeparator = [cellValue rangeOfString:@":"
+    
+    NSRange rngSep = [cellValue rangeOfString:@"\u00B5"
                                      options:NSBackwardsSearch
                                        range:NSMakeRange(0, cellValue.length)];
     
     int changeFlag = 0;
-    if(chngSeparator.length > 0){
-        NSLog(@":::::%@",[cellValue substringFromIndex:chngSeparator.location+1]);
-        changeFlag = [[cellValue substringFromIndex:chngSeparator.location+1] intValue];
-        cellValue = [cellValue substringToIndex:chngSeparator.location];
+    if(rngSep.location == NSNotFound){
+        NSLog(@"Separator Not Present");
+    }
+    else{
+        NSLog(@":::::%@",[cellValue substringFromIndex:rngSep.location+1]);
+        changeFlag = [[cellValue substringFromIndex:rngSep.location+1] intValue];
+        cellValue = [cellValue substringToIndex:rngSep.location];
     }
     cell.cellLabel.text=cellValue;
     
@@ -139,6 +147,7 @@
     if (changeFlag == 1){
         [cell.layer setBorderColor:[UIColor redColor].CGColor];
         [cell.layer setBorderWidth:1.5f];
+        watchArray[indexPath.section][indexPath.row] = [NSString stringWithFormat:@"%@\u00B50",cellValue];
     }
     else{
         [cell.layer setBorderColor:[UIColor blackColor].CGColor];
@@ -250,19 +259,19 @@
                             
                         if([aKey caseInsensitiveCompare:strTagColName] == NSOrderedSame){
                             watchArray[watchArrCnt][0] = (NSString *)
-                                                            [NSString stringWithFormat:@"%@:%d",
-                                                                [eachCell objectForKey:aKey],1];
+                                                            [NSString stringWithFormat:@"%@%@1",
+                                                                [eachCell objectForKey:aKey],@"\u00B5"];
                         }
                         if([aKey caseInsensitiveCompare:strValColName] == NSOrderedSame){
                             watchArray[watchArrCnt][1] = (NSString *)
-                                                            [NSString stringWithFormat:@"%@:%d",[eachCell objectForKey:aKey],1];
+                                                            [NSString stringWithFormat:@"%@%@1",[eachCell objectForKey:aKey],@"\u00B5"];
                         }
                         
                         if([aKey caseInsensitiveCompare:strTimeColName] == NSOrderedSame)
                         {
                             NSString *time = (NSString *)[eachCell objectForKey:aKey];
-                            watchArray[watchArrCnt][2]  = [NSString stringWithFormat:@"%@:%d",
-                                                           [common dateFromGMTtoLocal:time],1];
+                            watchArray[watchArrCnt][2]  = [NSString stringWithFormat:@"%@%@1",
+                                                           [common dateFromGMTtoLocal:time],@"\u00B5"];
                             
                         }
                         
@@ -349,10 +358,10 @@
                     strRowId = [mutdictRow valueForKey:key];
                 
             }
-            
-            [arrRow addObject:col1];
-            [arrRow addObject:col2];
-            [arrRow addObject:col3];
+
+            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B51",col1]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B51",col2]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B51",col3]];
             [arrRow addObject:strRowId];
             
             
