@@ -42,7 +42,7 @@
 
 
 /***** added by shirish for ondemand linkImport API 11/13/14 *****/
--(Cuboid*)LinkImportApiOnDemand:(NSInteger *)TableId onDemandParam:(NSString *)query
+-(Cuboid*)LinkImportApiOnDemand:(NSInteger) TableId onDemandParam:(NSString *)query
 {
     Buffer *Buff = [Buffer alloc];
     NSString *CallBuff = [Buff GetBufferLinkImportOnDemand:TableId onDemandParam:query];

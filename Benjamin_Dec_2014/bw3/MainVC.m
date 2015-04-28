@@ -176,10 +176,10 @@
     CuboidHandler *cubHandlerObj = [[CuboidHandler alloc] init];
     
     // send the mainVC obj to the noteshandler to launch notes module
-    NSArray *cubRowArray = [cubHandlerObj loadBenjaminWatch];
+    NSArray *cubRowArray = [cubHandlerObj loadBenjaminCuboid :@"2000268"];
     
     // navigate to watch interface
-    [cubHandlerObj callBenjaminWatch:self :cubRowArray];
+    [cubHandlerObj callBenjaminCuboid:self :cubRowArray :@"Cuboid"];
     
 }
 

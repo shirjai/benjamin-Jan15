@@ -7,9 +7,6 @@
 //
 
 #import "CellViewLayout.h"
-#import "CellViewController.h"
-#import "CuboidViewController.h"
-
 
 /*for new header layout*/
 #import "hdrLayout.h"
@@ -19,7 +16,6 @@ static NSString * const cellWatch = @"cellWatch";
 @interface CellViewLayout ()
 
     @property (nonatomic, strong) NSDictionary *layoutInfo;
-
 
 @end
 
@@ -34,7 +30,8 @@ static NSString * const cellWatch = @"cellWatch";
 //CGFloat cellWidth = 40.0;
 //CGFloat cellHt = 35.0;
 //int colCnt = 8;
-
+// to set the initial size of cell only 1 time
+Boolean initFlag = 0;
 
 #pragma mark - Lifecycle
 
@@ -63,19 +60,21 @@ static NSString * const cellWatch = @"cellWatch";
 
 - (void)setup
 {
-    //self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 1.0f);
-    self.itemWidth = 40.0;
-    self.itemHt = 35.0;
-    //self.itemSize = CGSizeMake(_itemWidth, _itemHt);
+
+    //self.itemWidth = 40.0;
+    self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 1.0f);
     self.interItemSpacingY = 0.0f;
-    _cellFontSize = 8;
     
+    self.itemWidth = 0.0;
+    self.itemHt   = 0.0;
     
-    // 320 is the fixed width of the phone in potrait mode.
-    //CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    //self.numberOfColumns =  floor(screenWidth / self.itemWidth);
-        // 8;//[self.collectionView numberOfItemsInSection:[self.collectionView numberOfSections]] ;//3;
-   
+    self.initItemWidth = 0.0;
+    self.initItemHt = 0.0;
+    //self.itemHt = 35.0;//35.0;
+    //_cellFontSize = 11; //8
+    
+    //self.itemSize = CGSizeMake(_itemWidth, _itemHt);
+
 }
 
 
@@ -92,14 +91,37 @@ static NSString * const cellWatch = @"cellWatch";
 - (void)prepareLayout
 {
      //NSLog(@"**** Inside prepareLayout ****");
-    //NSLog(@"**** _itemWidth **** ::: %f",_itemWidth);
-    self.itemInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 1.0f);
-    self.itemSize = CGSizeMake(_itemWidth, _itemHt);
-    self.interItemSpacingY = 0.0f;
+
     
     // 320 is the fixed width of the phone in potrait mode.
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    self.numberOfColumns =  floor(screenWidth / self.itemWidth);
+    
+    //NSLog(@"**** _itemWidth **** ::: %f",_itemWidth);
+    //self.numberOfColumns =  floor(screenWidth / self.itemWidth);
+
+    self.numberOfColumns = [self.collectionView numberOfItemsInSection:0];
+    
+    if (self.itemWidth == 0.0) {
+        self.itemWidth = floor(screenWidth / self.numberOfColumns);
+        if (self.itemWidth < 53)
+            self.itemWidth = 53.0;
+        
+    }
+
+
+    _itemHt = _itemWidth;
+    self.itemSize = CGSizeMake(_itemWidth, _itemHt);
+    
+    // 5 is the factor by which we want to set the fontsize based on itemwidth
+    _cellFontSize = ceil(_itemWidth/5);
+    
+    // get the initialvalue for width for zoom in/out
+    if (self.initItemWidth == 0.0)
+        self.initItemWidth = self.itemWidth;
+    
+    // get the initialvalue for height for zoom in/out
+    if (self.initItemHt == 0.0)
+        self.initItemHt = self.itemHt ;
     
     
     NSMutableDictionary *newLayoutInfo = [NSMutableDictionary dictionary];

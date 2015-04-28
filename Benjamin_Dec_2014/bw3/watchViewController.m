@@ -118,14 +118,33 @@
     
     watchCellViewController *cell = (watchCellViewController *)[collectionView dequeueReusableCellWithReuseIdentifier:@"watchCell" forIndexPath:indexPath];
     
-   cell.cellLabel.frame=CGRectMake(12, 13, 98, 0);
+   cell.cellLabel.frame=CGRectMake(5, 13, 98, 0);
     
-    cell.cellLabel.text=watchArray[indexPath.section][indexPath.row];
+    NSString *cellValue = watchArray[indexPath.section][indexPath.row];
+    NSRange chngSeparator = [cellValue rangeOfString:@":"
+                                     options:NSBackwardsSearch
+                                       range:NSMakeRange(0, cellValue.length)];
+    
+    int changeFlag = 0;
+    if(chngSeparator.length > 0){
+        NSLog(@":::::%@",[cellValue substringFromIndex:chngSeparator.location+1]);
+        changeFlag = [[cellValue substringFromIndex:chngSeparator.location+1] intValue];
+        cellValue = [cellValue substringToIndex:chngSeparator.location];
+    }
+    cell.cellLabel.text=cellValue;
     
     //NSLog(@"cellValue at Section%d Row%d = %@",indexPath.section,indexPath.row, cell.cellLabel.text);
     
-    [cell.layer setBorderWidth:1.0f];
-    [cell.layer setBorderColor:[UIColor blackColor].CGColor];
+    
+    if (changeFlag == 1){
+        [cell.layer setBorderColor:[UIColor redColor].CGColor];
+        [cell.layer setBorderWidth:1.5f];
+    }
+    else{
+        [cell.layer setBorderColor:[UIColor blackColor].CGColor];
+        [cell.layer setBorderWidth:1.0f];
+    }
+    
     cell.cellLabel.backgroundColor = [UIColor clearColor];
     
     cell.cellLabel.lineBreakMode=NSLineBreakByWordWrapping;
@@ -160,21 +179,38 @@
 
     NSLog(@"Inside Refresh Watch Tag Value cuboid");
     
+    // get user email address
+    //Database *db =[Database alloc];
+    //[db getPropertiesFile];
+    //NSString *userEmailId    = [db GetPropertyValue:@"UserName"];
+    //db = nil;
+    
+    
     //get watch properties
     NSDictionary *propDict = [common loadValuesfromPropertiesFile:@"watchProperties"];
     
     //assign query id
-    NSString *queryId = [propDict objectForKey:@"queryId"];//@"68";
+    //NSString *queryId = [propDict objectForKey:@"queryId"];//@"68";
+    
     //assign tagValue cuboid id
     int intWatchTagValId = [[propDict objectForKey:@"tableId"] intValue];//2000284;
-    
+   
+    /*
     ExternalQuery *extQueryObj = [[ExternalQuery alloc] init];
-    NSString *requestBuffer = [extQueryObj getExternalData :intWatchTagValId :@" " :queryId :@"20000234|88"];
-    NSArray *response = [extQueryObj ExtractResponseExternalData :requestBuffer];
+    NSString *extQueryParam = [NSString stringWithFormat:@"%@,|1|User Id|1",userEmailId];
+    
+    NSString *requestBuffer = [extQueryObj getExternalData :intWatchTagValId :@" " :queryId :extQueryParam];
+    
+    NSArray *response = [extQueryObj ExtractResponseExternalData :requestBuffer]; */
+    
+    
+    NSString *response = [common getMyDataFrmServer :@"" :@"GetLatestTagValue"];
+    
     
     if (response == nil) {
         NSLog(@"Error in updating Tag Cuboid");
     }
+
     
     NSLog(@"Refresh Cell Changes");
     Refresh *refreshObj = [[Refresh alloc]init];
@@ -186,9 +222,9 @@
     NSString *strTagColName     = [propDict objectForKey:@"tagValCol"];
     NSString *strValColName     = [propDict objectForKey:@"valCol"];
     NSString *strTimeColName    = [propDict objectForKey:@"timeStampCol"];
-    NSString *strUserColName    = [propDict objectForKey:@"userColName"];
-    NSString *strCubColName    = [propDict objectForKey:@"cubColName"];
-    NSMutableString *strOnDemandParam = [[propDict objectForKey:@"dynamicQuery"] mutableCopy];     
+    //NSString *strUserColName    = [propDict objectForKey:@"userColName"];
+    //NSString *strCubColName    = [propDict objectForKey:@"cubColName"];
+    //NSMutableString *strOnDemandParam = [[propDict objectForKey:@"dynamicQuery"] mutableCopy];
     NSArray *arrSelColNames = [NSArray arrayWithObjects: strTagColName, strValColName, strTimeColName, rowColName, nil];
     
     if([[cubWatch GetRow] count])
@@ -210,15 +246,24 @@
                 {
                     for( NSString *aKey in [eachCell allKeys] )
                     {
-                        if([aKey isEqualToString:strTagColName])
-                            watchArray[watchArrCnt][0] = (NSString *)[eachCell objectForKey:aKey];
-                        if([aKey isEqualToString:strValColName])
-                            watchArray[watchArrCnt][1] = (NSString *)[eachCell objectForKey:aKey];
-                        if([aKey isEqualToString:strTimeColName])
+ 
+                            
+                        if([aKey caseInsensitiveCompare:strTagColName] == NSOrderedSame){
+                            watchArray[watchArrCnt][0] = (NSString *)
+                                                            [NSString stringWithFormat:@"%@:%d",
+                                                                [eachCell objectForKey:aKey],1];
+                        }
+                        if([aKey caseInsensitiveCompare:strValColName] == NSOrderedSame){
+                            watchArray[watchArrCnt][1] = (NSString *)
+                                                            [NSString stringWithFormat:@"%@:%d",[eachCell objectForKey:aKey],1];
+                        }
+                        
+                        if([aKey caseInsensitiveCompare:strTimeColName] == NSOrderedSame)
                         {
                             NSString *time = (NSString *)[eachCell objectForKey:aKey];
-                            watchArray[watchArrCnt][2]  = [common dateFromExcelSerialDate:[time doubleValue]];
-                            //watchArray[watchArrCnt][2] = (NSString *)[eachCell objectForKey:aKey];
+                            watchArray[watchArrCnt][2]  = [NSString stringWithFormat:@"%@:%d",
+                                                           [common dateFromGMTtoLocal:time],1];
+                            
                         }
                         
                     }
@@ -284,22 +329,22 @@
             NSMutableArray *arrRow = [[NSMutableArray alloc] init];
             for (NSString *key in mutdictRow)
             {
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strTagColName, key];
+                predicate = [NSPredicate predicateWithFormat:@"(%@ ==[c] %@)", strTagColName, key];
                 if([predicate evaluateWithObject:mutdictRow])
                     col1 = [mutdictRow valueForKey:key];
                 
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strValColName, key];
+                predicate = [NSPredicate predicateWithFormat:@"(%@ ==[c] %@)", strValColName, key];
                 if([predicate evaluateWithObject:mutdictRow])
                     col2 = [mutdictRow valueForKey:key];
                 
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strTimeColName, key];
+                predicate = [NSPredicate predicateWithFormat:@"(%@ ==[c] %@)", strTimeColName, key];
                 if([predicate evaluateWithObject:mutdictRow])
                 {
                     col3 = [mutdictRow valueForKey:key];
-                    col3 = [common dateFromExcelSerialDate:[col3 doubleValue]];
+                    col3 = [common dateFromGMTtoLocal:col3];
                 }
                 
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", rowColName, key];
+                predicate = [NSPredicate predicateWithFormat:@"(%@ ==[c] %@)", rowColName, key];
                 if([predicate evaluateWithObject:mutdictRow])
                     strRowId = [mutdictRow valueForKey:key];
                 
@@ -351,8 +396,10 @@
     else{
         NSLog(@"No changes from the cloud");
     }
+    // reload data to show the changes on display
     [self.watchCollectionView reloadData];
     NSLog(@"Reload Data Done");
+    
     [refreshControlObj endRefreshing];
     NSLog(@"Refresh Ends");
 }

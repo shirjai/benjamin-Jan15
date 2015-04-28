@@ -293,8 +293,45 @@
         [BWC SetCells:cellv];
         
     }
+
     
+    /** Start: added by shirish for new rows on refresh 11/24/14 **/
+    // get new rows
+    NSMutableDictionary *newRowsDict = [[NSMutableDictionary alloc] init];
+    NSArray *newRowsArr = [[NSArray alloc] init];
     
+    NSRange newRowIdentifier = [[resParts objectAtIndex:2] rangeOfString:@"N"];
+    if (newRowIdentifier.location != NSNotFound)
+    {
+        NSString *prevRowId = @"";
+        NSString *newRowId  = @"";
+        
+        NSArray *RowsArr = [[resParts objectAtIndex:2] componentsSeparatedByString:seperator];
+        
+        for (int rowsArrCnt=0;rowsArrCnt < [RowsArr count];rowsArrCnt++)
+        {
+            newRowId =[RowsArr objectAtIndex:rowsArrCnt];
+            if ([[RowsArr objectAtIndex:rowsArrCnt+1] isEqualToString:@"N"])
+            {
+                if (rowsArrCnt == 0)
+                    [newRowsDict setObject:newRowId forKey:@"-1"];
+                //[newRowsDict addObject:[NSString stringWithFormat:@"-1:%@", newRowId]];
+                else
+                    [newRowsDict setObject:newRowId forKey:prevRowId];
+                //[newRowsDict addObject:[NSString stringWithFormat:@"%@:%@",prevRowId,newRowId]];
+                
+            }
+            
+            prevRowId = newRowId;
+            rowsArrCnt+= 1;
+        }
+        //[newRowsArr addObject:newRowsDict];
+        newRowsArr = (NSArray *)newRowsDict;
+        [BWC setNewRows:newRowsArr];
+    }
+    else
+        [BWC setNewRows:nil];
+    /** end: added by shirish for new rows on refresh 11/24/14 **/
     return BWC;
     
 }
@@ -682,7 +719,7 @@
 
 
 /***** start: ondemand linkImport buffer added by shirish on 11/13/14*****/
--(NSString *)GetBufferLinkImportOnDemand:(NSInteger *)TableID onDemandParam:(NSString *)query
+-(NSString *)GetBufferLinkImportOnDemand:(NSInteger)TableID onDemandParam:(NSString *)query
 {
     //get saved information from DB
     Database *db =[Database alloc];

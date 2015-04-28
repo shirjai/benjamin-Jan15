@@ -42,9 +42,9 @@
 
 @synthesize watchArray,cubCellValue;
 
-/** pinch gesture**/
-const CGFloat kScaleLower = 0.5;
-const CGFloat kScaleUpper = 4.0;
+/** pinch gesture min and max zoom **/
+const CGFloat kScaleLower = 1.0;
+const CGFloat kScaleUpper = 3.5;
 /** pinch gesture**/
 
 CellViewController *selectedCell;
@@ -56,12 +56,11 @@ Boolean didValSaved = false;
 
 
 
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Cuboid";
+        //self.title = self.CuboidName; //@"Cuboid";
         dictChanges = [[NSMutableDictionary alloc] init];
         
       //  _CuboidCollectionView = self.CuboidCollectionView;
@@ -116,17 +115,6 @@ Boolean didValSaved = false;
 
 
     
-}
-
--(void) tappedCell {
-    
-    //[self textViewDidBeginEditing:watchCellValue];
-    //UICollectionView *collectionView = (UICollectionView*)self.superview;
-    NSIndexPath *indexPath = [self.CuboidCollectionView indexPathForCell:self];
-    //[self.CuboidCollectionView  didSelectItemAtIndexPath:indexPath];
-    
-    //[self.watchCellValue becomeFirstResponder];
-    NSLog(@"Back to tapped");
 }
 
 
@@ -231,6 +219,8 @@ Boolean didValSaved = false;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 	
+    self.title = self.CuboidName;
+    
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
 	// important to reload data when view is redrawn
     [self.CuboidCollectionView reloadItemsAtIndexPaths:[self.CuboidCollectionView indexPathsForVisibleItems]];
@@ -397,10 +387,11 @@ Boolean didValSaved = false;
     */
     
     CellViewLayout *gridLayout = (CellViewLayout *)self.CuboidCollectionView.collectionViewLayout;
-    CGSize initialCellSize = gridLayout.itemSize;
     
     
     static CGFloat scaleStart;
+    
+
     
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
@@ -409,6 +400,8 @@ Boolean didValSaved = false;
         
         // disable scroll when pinch has started
         self.CuboidCollectionView.scrollEnabled = NO;
+        
+        
         //gridLayout.itemSize = initialCellSize;
         return;
     }
@@ -419,20 +412,18 @@ Boolean didValSaved = false;
         //[gridLayout setItemHt:gridLayout.itemHt * gesture.scale];
         //if (gesture.scale > 1.0)
         self.scale = scaleStart * gesture.scale ;
-        [gridLayout setCellFontSize:(8 * _scale )];
+        [gridLayout setCellFontSize:(gridLayout.cellFontSize * _scale )];
         
 
         NSLog(@"gesture.scale:%f",gesture.scale);
         NSLog(@"gridLayout.scale:%f self.scale:%f",gridLayout.itemWidth,_scale);
         NSLog(@"new width= %f",(gridLayout.itemWidth * _scale));
-        //if (self.scale > 0.8 && self.scale < 1.2)
-        //[gridLayout setItemWidth:gridLayout.itemWidth * gesture.scale];
         
-        //[gridLayout setItemWidth:gridLayout.itemWidth  * _scale];
-        //[gridLayout setItemHt:gridLayout.itemHt * _scale];
+        //[gridLayout setItemWidth:35.0  * _scale];
+        //[gridLayout setItemHt:40.0 * _scale];
         
-        [gridLayout setItemWidth:40.0  * _scale];
-        [gridLayout setItemHt:35.0 * _scale];
+        [gridLayout setItemWidth:gridLayout.initItemWidth * _scale];
+        //[gridLayout setItemHt:gridLayout.initItemHt * _scale];
         
 /*
         if (gesture.scale > 1.0){
@@ -506,8 +497,13 @@ Boolean didValSaved = false;
     
     NSLog(@"Inside textViewDidBEGINEditing");
     
-    
+
+    //enable scrolling for textview for cell editing
+   // textView.scrollEnabled = true;
+   //  NSLog(@"@@@@ textView.scrollEnabled=%d @@@@@",textView.scrollEnabled);
     //as the didSelectIndexPath is invoked before textViewDidEndEditing
+    
+    
     prevCellIndexPath = selectedCellIndexPath;
     
    // NSIndexPath *indexPath = [self.CuboidCollectionView indexPathForCell:self];
@@ -577,11 +573,16 @@ Boolean didValSaved = false;
     // to dismiss keyboard
     [self.view endEditing:YES];
     [selectedCell.watchCellValue resignFirstResponder];
+    
+    // disable scrolling for textview
+    selectedCell.watchCellValue.scrollEnabled = false;
+    
     if (didValSaved) {
         [CuboidHandler submitNotes:dictChanges];
         [self.CuboidCollectionView reloadData];
         didValSaved = false;
     }
+
 
     
     //NSIndexPath *indexPath = [self.CuboidCollectionView indexPathForCell:self];

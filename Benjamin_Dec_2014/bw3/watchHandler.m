@@ -33,7 +33,7 @@
     NSString *strValColName     = [propDict objectForKey:@"valCol"]; //@"Value";
     NSString *strTimeColName    = [propDict objectForKey:@"timeStampCol"];//@"Timestamp";
     NSString *strUserColName    = [propDict objectForKey:@"userColName"];
-    NSString *strCubColName    = [propDict objectForKey:@"cubColName"];
+    NSString *strCubColName     = [propDict objectForKey:@"cubColName"];
     NSString *strOnDemandParam ;
     
     //get userid
@@ -128,28 +128,28 @@
             NSMutableArray *arrRow = [[NSMutableArray alloc] init];
             for (NSString *key in mutdictRow)
             {
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strTagColName, key];
+                predicate = [NSPredicate predicateWithFormat:@"(%@ ==[c] %@)", strTagColName, key];
                 if([predicate evaluateWithObject:mutdictRow])
                      col1 = [mutdictRow valueForKey:key];
  
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strValColName, key];
+                predicate = [NSPredicate predicateWithFormat:@"(%@ ==[c] %@)", strValColName, key];
                 if([predicate evaluateWithObject:mutdictRow])
                     col2 = [mutdictRow valueForKey:key];
 
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strTimeColName, key];
+                predicate = [NSPredicate predicateWithFormat:@"(%@ ==[c] %@)", strTimeColName, key];
                 if([predicate evaluateWithObject:mutdictRow])
                 {
                     col3 = [mutdictRow valueForKey:key];
-                    col3 = [common dateFromExcelSerialDate:[col3 doubleValue]];
+                    col3 = [common dateFromGMTtoLocal:col3];
                 }
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", @"RowId", key];
+                predicate = [NSPredicate predicateWithFormat:@"(%@ ==[c] %@)", @"RowId", key];
                 if([predicate evaluateWithObject:mutdictRow])
                     strRowId = [mutdictRow valueForKey:key];
             }
             
-            [arrRow addObject:col1];
-            [arrRow addObject:col2];
-            [arrRow addObject:col3];
+            [arrRow addObject:[NSString stringWithFormat:@"%@:%d",col1,0]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@:%d",col2,0]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@:%d",col3,0]];
             [arrRow addObject:strRowId];
             
             [watchRowArray addObject:arrRow];

@@ -80,11 +80,14 @@
 -(void) tapped:(UITapGestureRecognizer*) gesture{
     
     //[self textViewDidBeginEditing:watchCellValue];
+    
     UICollectionView *collectionView = (UICollectionView*)self.superview;
     NSIndexPath *indexPath = [collectionView indexPathForCell:self];
     [collectionView.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
-
+    
     [self.watchCellValue becomeFirstResponder];
+    
+    
     //NSLog(@"Back to tapped");
 }
 
@@ -115,6 +118,9 @@
     
     //to display the first line of the text on zoom
     watchCellValue.contentOffset = CGPointZero;
+    
+    // disable scrolling for textview
+    //watchCellValue.scrollEnabled = false;
 
 }
 

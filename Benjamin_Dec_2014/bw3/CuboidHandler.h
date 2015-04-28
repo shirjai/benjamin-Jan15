@@ -11,8 +11,8 @@
 
 @interface CuboidHandler : NSObject
 
--(NSArray *)loadBenjaminWatch;
--(void)callBenjaminWatch:(MainVC *)mainVCObj :(NSArray *)watchRowArray;
+-(NSArray *)loadBenjaminCuboid :(NSInteger )cuboidId;
+-(void)callBenjaminCuboid:(MainVC *)mainVCObj :(NSArray *)watchRowArray :(NSString *)cuboidName;
 +(void)submitNotes:(NSDictionary *)dictChanges;
 
 @end

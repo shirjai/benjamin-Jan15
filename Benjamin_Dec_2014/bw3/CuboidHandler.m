@@ -17,7 +17,7 @@
 
 @implementation CuboidHandler
 
--(NSArray *)loadBenjaminWatch{
+-(NSArray *)loadBenjaminCuboid :(NSInteger )cuboidId {
     
     NSMutableArray *watchRowArray = [[NSMutableArray alloc]init];
     
@@ -27,80 +27,68 @@
     NSDictionary *propDict = [common loadValuesfromPropertiesFile:@"CuboidProperties"];
     
     //assign watch properties
-    NSInteger *intWatchTagValId = [[propDict objectForKey:@"tableId"] integerValue];//2000284;
+    NSInteger *intWatchTagValId = cuboidId;//[[propDict objectForKey:@"tableId"] integerValue];//2000284;
     
-    NSString *rowColName        = [propDict objectForKey:@"rowIdKey"];//@"RowId";
-    NSString *strCol1     = [propDict objectForKey:@"col1"];
-    NSString *strCol2     = [propDict objectForKey:@"col2"];
-    NSString *strCol3    = [propDict objectForKey:@"col3"];
-    NSString *strCol4    = [propDict objectForKey:@"col4"];
-    NSString *strCol5    = [propDict objectForKey:@"col5"];
-    NSString *strCol6    = [propDict objectForKey:@"col6"];
-    NSString *strCol7    = [propDict objectForKey:@"col7"];
-    NSString *strCol8    = [propDict objectForKey:@"col8"];
+    NSString *rowColName  = [propDict objectForKey:@"rowIdKey"];//@"RowId";
     
-    NSString *strCritCol1    = [propDict objectForKey:@"critCol1"];
-    NSString *strCritCol2   = [propDict objectForKey:@"critCol2"];
-    NSMutableString *strOnDemandParam = [[propDict objectForKey:@"dynamicQuery"] mutableCopy]; //@"?UserId="
+    //get the colPositions to be displayed.
+    NSMutableString *strColsPos = [[propDict objectForKey:@"colPos"] mutableCopy];
+    NSMutableArray *strColsPosArr = (NSMutableArray *)[strColsPos componentsSeparatedByString:@","] ;
     
- 
-/*     // get cuboidIds
-    NSString *critSeparator = [NSString stringWithFormat:@"|%@=",strCritCol1];
-    WBclass *WBC = [[WBclass alloc]init];
-    NSArray *WorkbookNames = [WBC getworkbooks];
+    // max rows to be displayed due to limited memory
+    NSInteger integerRowCnt = [[propDict objectForKey:@"rowCount"] integerValue];
     
-   NSMutableArray *arrCuboidId = [[NSMutableArray alloc] init];
-    NSString *cuboidCriteria = [[NSString alloc] init];
+   // NSMutableString *strOnDemandParam = [[propDict objectForKey:@"dynamicQuery"] mutableCopy]; //@"?UserId="
     
-    for(NSString *eachWorkbook in WorkbookNames)
-    {
-        WBDetails *accessibleCuboid = [WBC GetWorkbookDetails:eachWorkbook];
-        NSMutableArray *accessCuboidIds = [accessibleCuboid GetCuboidId];
-        
-        [arrCuboidId addObject:[accessCuboidIds componentsJoinedByString:critSeparator]];
-    }
-    
-    if([arrCuboidId count] == 1)
-        cuboidCriteria = arrCuboidId[0];
-    else
-        cuboidCriteria = [arrCuboidId componentsJoinedByString:critSeparator];
- 
-
-    // prepare dynamic query
-    NSRange rngUserId = [strOnDemandParam rangeOfString: [NSString stringWithFormat:@"%@=",strCritCol2]];
-    
-    if (rngUserId.location != NSNotFound) {
-        NSInteger indexInsert = rngUserId.location + rngUserId.length;
-        [strOnDemandParam insertString:UserIDVal atIndex:indexInsert];
-    }
-    
-    rngUserId = [strOnDemandParam rangeOfString: [NSString stringWithFormat:@"%@=",strCritCol1]];
-    */
-/*    if (rngUserId.location != NSNotFound) {
-        NSInteger indexInsert = rngUserId.location + rngUserId.length;
-        [strOnDemandParam insertString:cuboidCriteria atIndex:indexInsert];
-    } */
-        
-    LinkImport *linkImportWatch = [LinkImport alloc];
-    
-    
-    // ondemand link import cuboid
-    Cuboid *cuboidTagVal = [linkImportWatch LinkImportApiOnDemand:intWatchTagValId onDemandParam:strOnDemandParam];
-    
+    // linkImport cuboid
+    LinkImport *linkImportCuboid = [LinkImport alloc];
+    Cuboid *cuboidTagVal = [linkImportCuboid LinkImportApi:intWatchTagValId];
     int TagValTableId = [cuboidTagVal GetTableId];
  
     if ( TagValTableId != 0)
     {
         NSLog(@"Data returned from server");
         
-        NSMutableArray *mutarrRowTagVal =[cuboidTagVal GetRow];
+        NSMutableArray *arrRowTagValFull =[cuboidTagVal GetRow];
+        NSMutableArray *mutarrRowTagVal =[[NSMutableArray alloc] init];
+        if ([arrRowTagValFull count] > integerRowCnt) {
+            NSArray *arrRowTagValTemp = [arrRowTagValFull subarrayWithRange:NSMakeRange(0,integerRowCnt)];
+            mutarrRowTagVal = [arrRowTagValTemp mutableCopy];
+        }
+        else
+            mutarrRowTagVal = [arrRowTagValFull mutableCopy];
+        
+        arrRowTagValFull = nil;
         NSMutableArray *mutarrTagVal = [[NSMutableArray alloc] init];
-        NSArray *arrSelColNames = [NSArray arrayWithObjects: rowColName,strCol1, strCol2, strCol3, strCol4,strCol5,strCol6,strCol7,strCol8, nil];
         
-        //re-arrange data in watch format and get it in an array
-        mutarrTagVal = [common prepareDataFromBuffer:mutarrRowTagVal ColNames:arrSelColNames RowIdCol:rowColName];
+        // add the first column as RowId column
+        NSMutableArray *arrSelColNames = [NSMutableArray arrayWithObjects: rowColName, nil];
         
-        // add header
+        // get all cols for cuboid.Assuming colNames are in sequence
+        NSArray *cubCols = [mutarrRowTagVal[0] GetColNames];
+        
+        // prepare selected col header array
+        [cubCols enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            
+            NSString *cubColName = (NSString *)obj;
+            NSString *cubColPos = [NSString stringWithFormat:@"%lu",(idx + 1)] ;
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",cubColPos];
+            NSUInteger selColCount = [[strColsPosArr filteredArrayUsingPredicate:predicate] count];
+            if (selColCount > 0){
+                [arrSelColNames addObject:cubColName];
+                [strColsPosArr removeObject:cubColPos];
+            }
+            if ([strColsPosArr count] == 0 ) {
+                *stop = YES;
+            }
+        }
+        ];
+        
+                
+        //re-arrange data in colname:value format and get it in an array
+        mutarrTagVal = [common prepareOrderedDataFromBuffer:mutarrRowTagVal ColNames:arrSelColNames RowIdCol:rowColName];
+        
+        // add col header
         [watchRowArray addObject:arrSelColNames];
         
       /*  NSMutableIndexSet *indexes = [NSMutableIndexSet indexSetWithIndex:0];
@@ -111,69 +99,30 @@
         
         // add data
          NSLog(@"Adding data to array for display");
-        NSPredicate *predicate = nil;
-        NSString *col1 = nil;
-        NSString *col2 = nil;
-        NSString *col3 = nil;
-        NSString *col4 = nil;
-        NSString *col5 = nil;
-        NSString *col6 = nil;
-        NSString *col7 = nil;
-        NSString *col8 = nil;
+        int colPos = -1;
+        NSMutableString *colName = nil;
         
-        NSString *strRowId = nil;
-        
-        for(NSMutableDictionary *mutdictRow in mutarrTagVal)
+        // loop through all the rows
+        for(NSArray *mutdictRow in mutarrTagVal)
         {
-            NSMutableArray *arrRow = [[NSMutableArray alloc] init];
+            NSMutableArray *arrRow = [[NSMutableArray alloc] initWithCapacity:[arrSelColNames count]];
+            for (int i = 0; i < [arrSelColNames count]; i++)
+                [arrRow addObject:[NSNull null]];
+            
+            // loop through all the columns of a single row
             for (NSString *key in mutdictRow)
             {
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strCol1, key];
-                if([predicate evaluateWithObject:mutdictRow])
-                     col1 = [mutdictRow valueForKey:key];
- 
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strCol2, key];
-                if([predicate evaluateWithObject:mutdictRow])
-                    col2 = [mutdictRow valueForKey:key];
-
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strCol3, key];
-                if([predicate evaluateWithObject:mutdictRow])
-                    col3 = [mutdictRow valueForKey:key];
-
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strCol4, key];
-                if([predicate evaluateWithObject:mutdictRow])
-                    col4 = [mutdictRow valueForKey:key];
-
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strCol5, key];
-                if([predicate evaluateWithObject:mutdictRow])
-                    col5 = [mutdictRow valueForKey:key];
+                NSLog(@"colPosition->%@",[common getSubstring:key defineStartChar:@"" defineEndChar:@":"]);
+                colPos = [[common getSubstring:key defineStartChar:@"" defineEndChar:@":"] intValue];
+               // [colName setString:[common getSubstring:key defineStartChar:@":" defineEndChar:@""]];
                 
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strCol6, key];
-                if([predicate evaluateWithObject:mutdictRow])
-                    col6 = [mutdictRow valueForKey:key];
+               // NSPredicate *predicateColName = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",colName];
                 
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strCol7, key];
-                if([predicate evaluateWithObject:mutdictRow])
-                    col7 = [mutdictRow valueForKey:key];
+                //[[arrSelColNames filteredArrayUsingPredicate:predicateColName] objectAtIndex:0];
                 
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", strCol8, key];
-                if([predicate evaluateWithObject:mutdictRow])
-                    col8 = [mutdictRow valueForKey:key];
+                [arrRow replaceObjectAtIndex:colPos withObject:[mutdictRow valueForKey:key]];
                 
-                predicate = [NSPredicate predicateWithFormat:@"(%@ == %@)", @"RowId", key];
-                if([predicate evaluateWithObject:mutdictRow])
-                    strRowId = [mutdictRow valueForKey:key];
-            }
-            
-            [arrRow addObject:strRowId];
-            [arrRow addObject:col1];
-            [arrRow addObject:col2];
-            [arrRow addObject:col3];
-            [arrRow addObject:col4];
-            [arrRow addObject:col5];
-            [arrRow addObject:col6];
-            [arrRow addObject:col7];
-            [arrRow addObject:col8];
+            }            
             
             [watchRowArray addObject:arrRow];
         }    
@@ -186,8 +135,8 @@
     return [watchRowArray copy];
 }
 
-// navigate screen to Benjamin Watch
--(void)callBenjaminWatch:(MainVC *)mainVCObj :(NSArray *)watchRowArray
+// navigate screen to Grid View
+-(void)callBenjaminCuboid:(MainVC *)mainVCObj :(NSArray *)watchRowArray :(NSString *)cuboidName
 {
     NSLog(@"Initialize CuboidViewController");
     
@@ -202,23 +151,19 @@
     
     NSLog(@"Initialize appdelegate");
     AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    
-    NSLog(@"Set rootviewcontroller in appdelegate");
-    NSLog(@"appDelegate: %@",appDelegate);
-    NSLog(@"appDelegate.window: %@",appDelegate.window);
-    NSLog(@"watchNavCtrl: %@",watchNavCtrl);
-    NSLog(@"watchVC: %@",watchVC);
+
     
     //appDelegate.window.rootViewController = watchNavCtrl;
     [appDelegate.window setRootViewController:watchNavCtrl];
     // [appDelegate.window makeKeyAndVisible];
     
     NSLog(@"Push CuboidViewController to current view ");
-    
     [mainVCObj.navigationController pushViewController:watchVC animated:YES];
+    
     
     NSLog(@"Add data to Array of CuboidViewController for display");
     watchVC.watchArray   = [[NSMutableArray alloc]init];
+    watchVC.CuboidName = cuboidName;
     
     [[watchVC watchArray] addObjectsFromArray:watchRowArray];
     

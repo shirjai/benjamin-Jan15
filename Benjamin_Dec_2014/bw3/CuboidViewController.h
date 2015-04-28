@@ -14,7 +14,11 @@
 @property (strong, nonatomic) NSMutableArray *watchArray;
 
 @property (nonatomic,assign) CGFloat scale;
+
+
 @property (nonatomic,assign) BOOL fitCells;
 @property (nonatomic,assign) BOOL animatedZooming;
 @property (strong, nonatomic) IBOutlet UICollectionView *CuboidCollectionView;
+
+@property (nonatomic,strong) NSString *CuboidName;
 @end

@@ -36,7 +36,7 @@
 /***** start: added by shirish on 11/13/14*****/
 
 //ondemand linkImport buffer
--(NSString *)GetBufferLinkImportOnDemand:(NSInteger *)TableID onDemandParam:(NSString *)query;
+-(NSString *)GetBufferLinkImportOnDemand:(NSInteger)TableID onDemandParam:(NSString *)query;
 
 /***** end:  added by shirish on 11/13/14*****/
 

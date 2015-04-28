@@ -16,11 +16,11 @@
 -(NSMutableArray *)GetValues;
 -(int)GetRowID;
 
-/*added by shirish starts 7/28 */
+/*added by shirish starts 7/28/14 */
 @property (nonatomic, readonly) int RowId;
 @property (nonatomic, readonly) NSMutableArray *ColName;
 @property (nonatomic, readonly) NSMutableArray *Value;
-/*added by shirish ends 7/28 */
+/*added by shirish ends 7/28/14 */
 
 
 @end

@@ -15,8 +15,14 @@
 +(CATransition *)getViewTransistionStylePageCurl;
 +(NSString *)getSubstring:(NSString *)stringParam defineStartChar:(NSString *)start defineEndChar:(NSString *)end;
 
++(NSMutableArray *)prepareOrderedDataFromBuffer:(NSMutableArray *)mutarrCubRows ColNames:(NSArray *)arrSelColNames RowIdCol:(NSString *)rowIdColName;
+
 +(NSMutableArray *)prepareDataFromBuffer:(NSMutableArray *)mutarrCubRows ColNames:(NSArray *)arrSelColNames RowIdCol:(NSString *)rowIdColName;
 
 +(NSString *) dateFromExcelSerialDate:(double) serialdate;
+
++(NSString *)getMyDataFrmServer :(NSString *)myParam :(NSString *)myEndpoint;
+
++(NSString *) dateFromGMTtoLocal:(NSString *)strDateGMT;
 
 @end

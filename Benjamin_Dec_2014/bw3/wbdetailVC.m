@@ -18,6 +18,11 @@
 #import "AllUpdatesVC.h"
 #import "MissingUpdatesVC.h"
 
+/**added by shirish to open the cuboid 3/4/15 **/
+#import "CuboidHandler.h"
+/**added by shirish to open the cuboid 3/4/15 **/
+
+
 @interface wbdetailVC ()
 {
     NSMutableArray *SheetNames;
@@ -108,11 +113,20 @@
     
     
     /**added by shirish to open the cuboid 3/4/15 **/
-    UIButton *openCuboid = [UIButton buttonWithType:UIButtonTypeSystem];
-    openCuboid.frame = CGRectMake(250.0f, 0.5f, 75.0f, 30.0f);
-    [openCuboid setTitle:@"Open" forState:UIControlStateNormal];
-    [cell addSubview:openCuboid];
-    [openCuboid addTarget:self action:@selector(cuboidView:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *openCuboidBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    openCuboidBtn.frame = CGRectMake(250.0f, 0.5f, 75.0f, 30.0f);
+    
+    [openCuboidBtn setTitle:@"Open" forState:UIControlStateNormal];
+    [cell addSubview:openCuboidBtn];
+    
+    
+    [openCuboidBtn setTag:indexPath.row];
+    //openCuboidBtn.titleLabel.text = cuboidIdStr;
+    //openCuboidBtn.titleLabel.hidden = YES;
+    
+    [openCuboidBtn addTarget:self action:@selector(cuboidView:) forControlEvents:UIControlEventTouchUpInside];
+
     /**added by shirish to open the cuboid 3/4/15 **/
     
     return cell;
@@ -313,7 +327,22 @@
   /**added by shirish to open the cuboid 3/4/15 **/
 # pragma mark - Boardwalk Methods
 
-- (void)cuboidView {
+- (IBAction)cuboidView:(UIButton *)sender
+{
+    //UIButton *btnCopy = (UIButton *)sender;
+    //UIView *btnView = btnCopy.superview;
+    //workbookCell *btnCell = (workbookCell *)btnView.superview;
+    NSInteger cuboidSeq =  sender.tag;
+    NSInteger cuboidId = [[CuboidIds objectAtIndex:cuboidSeq] integerValue];
+    NSString *cuboidName = [SheetNames objectAtIndex:cuboidSeq];
+    
+    CuboidHandler *cubHandlerObj = [[CuboidHandler alloc] init];
+    
+    // send the mainVC obj to the noteshandler to launch notes module
+    NSArray *cubRowArray = [cubHandlerObj loadBenjaminCuboid :cuboidId];
+    
+    // navigate to watch interface
+    [cubHandlerObj callBenjaminCuboid :self :cubRowArray :cuboidName];
     
 }
   /**added by shirish to open the cuboid 3/4/15 **/

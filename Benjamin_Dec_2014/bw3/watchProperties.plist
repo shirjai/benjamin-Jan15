@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>tableId</key>
-	<integer>2000284</integer>
+	<real>2000289</real>
 	<key>rowIdKey</key>
 	<string>RowId</string>
 	<key>tagValCol</key>
@@ -13,12 +13,12 @@
 	<key>timeStampCol</key>
 	<string>Timestamp</string>
 	<key>userColName</key>
-	<string>UserId</string>
+	<string>User Id</string>
 	<key>cubColName</key>
 	<string>Cuboid Id</string>
 	<key>dynamicQuery</key>
-	<string>?Cuboid Id=&amp;UserId=</string>
+	<string>?Cuboid Id=&amp;User Id=</string>
 	<key>queryId</key>
-	<string>68</string>
+	<string>70</string>
 </dict>
 </plist>
