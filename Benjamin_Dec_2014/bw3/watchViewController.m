@@ -145,12 +145,14 @@
     
     
     if (changeFlag == 1){
-        [cell.layer setBorderColor:[UIColor redColor].CGColor];
+        //[cell.layer setBorderColor:[UIColor redColor].CGColor];
+        cell.cellLabel.textColor = [UIColor redColor];
         [cell.layer setBorderWidth:1.5f];
         watchArray[indexPath.section][indexPath.row] = [NSString stringWithFormat:@"%@\u00B50",cellValue];
     }
     else{
-        [cell.layer setBorderColor:[UIColor blackColor].CGColor];
+        //[cell.layer setBorderColor:[UIColor blackColor].CGColor];
+        cell.cellLabel.textColor = [UIColor blackColor];
         [cell.layer setBorderWidth:1.0f];
     }
     
