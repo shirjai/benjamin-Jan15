@@ -16,9 +16,7 @@
 	<string>User Id</string>
 	<key>cubColName</key>
 	<string>Cuboid Id</string>
-	<key>dynamicQuery</key>
-	<string>?Cuboid Id=&amp;User Id=</string>
-	<key>queryId</key>
-	<string>70</string>
+	<key>chngSeparator</key>
+	<string>\u00B5</string>
 </dict>
 </plist>

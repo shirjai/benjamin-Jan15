@@ -24,7 +24,7 @@
 ,UICollectionViewDelegateFlowLayout>
 {
     UIRefreshControl *refreshControlObj;
-    
+    NSString *chngSeparator    ;
     
 }
 
@@ -69,6 +69,8 @@
     //[self.watchCollectionView reloadData];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_logo.png"]];
  
+    chngSeparator     = [[common loadValuesfromPropertiesFile:@"watchProperties"] objectForKey:@"chngSeparator"];
+    
    /// self.watchCollectionView.collectionViewLayout = [[watchCellViewLayout alloc] init];
     
     // Configure layout
@@ -126,7 +128,7 @@
     
     NSString *cellValue = watchArray[indexPath.section][indexPath.row];
     
-    NSRange rngSep = [cellValue rangeOfString:@"\u00B5"
+    NSRange rngSep = [cellValue rangeOfString:chngSeparator
                                      options:NSBackwardsSearch
                                        range:NSMakeRange(0, cellValue.length)];
     
@@ -135,8 +137,8 @@
         NSLog(@"Separator Not Present");
     }
     else{
-        NSLog(@":::::%@",[cellValue substringFromIndex:rngSep.location+1]);
-        changeFlag = [[cellValue substringFromIndex:rngSep.location+1] intValue];
+        //NSLog(@":::::%@",[cellValue substringFromIndex:rngSep.location+rngSep.length]);
+        changeFlag = [[cellValue substringFromIndex:rngSep.location+rngSep.length] intValue];
         cellValue = [cellValue substringToIndex:rngSep.location];
     }
     cell.cellLabel.text=cellValue;
@@ -148,7 +150,7 @@
         //[cell.layer setBorderColor:[UIColor redColor].CGColor];
         cell.cellLabel.textColor = [UIColor redColor];
         [cell.layer setBorderWidth:1.5f];
-        watchArray[indexPath.section][indexPath.row] = [NSString stringWithFormat:@"%@\u00B50",cellValue];
+        watchArray[indexPath.section][indexPath.row] = [NSString stringWithFormat:@"%@%@0",cellValue,chngSeparator];
     }
     else{
         //[cell.layer setBorderColor:[UIColor blackColor].CGColor];
@@ -262,18 +264,18 @@
                         if([aKey caseInsensitiveCompare:strTagColName] == NSOrderedSame){
                             watchArray[watchArrCnt][0] = (NSString *)
                                                             [NSString stringWithFormat:@"%@%@1",
-                                                                [eachCell objectForKey:aKey],@"\u00B5"];
+                                                                [eachCell objectForKey:aKey],chngSeparator];
                         }
                         if([aKey caseInsensitiveCompare:strValColName] == NSOrderedSame){
                             watchArray[watchArrCnt][1] = (NSString *)
-                                                            [NSString stringWithFormat:@"%@%@1",[eachCell objectForKey:aKey],@"\u00B5"];
+                                                            [NSString stringWithFormat:@"%@%@1",[eachCell objectForKey:aKey],chngSeparator];
                         }
                         
                         if([aKey caseInsensitiveCompare:strTimeColName] == NSOrderedSame)
                         {
                             NSString *time = (NSString *)[eachCell objectForKey:aKey];
                             watchArray[watchArrCnt][2]  = [NSString stringWithFormat:@"%@%@1",
-                                                           [common dateFromGMTtoLocal:time],@"\u00B5"];
+                                                           [common dateFromGMTtoLocal:time],chngSeparator];
                             
                         }
                         
@@ -361,9 +363,9 @@
                 
             }
 
-            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B51",col1]];
-            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B51",col2]];
-            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B51",col3]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@%@1",col1,chngSeparator]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@%@1",col2,chngSeparator]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@%@1",col3,chngSeparator]];
             [arrRow addObject:strRowId];
             
             

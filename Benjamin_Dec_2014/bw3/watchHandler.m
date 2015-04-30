@@ -20,10 +20,7 @@
     
     NSMutableArray *watchRowArray = [[NSMutableArray alloc]init];
     
-    NSCharacterSet *chngSeparator = [NSCharacterSet
-                                characterSetWithCharactersInString:@"\u00B5"];
 
-    
     //get watch properties
     NSDictionary *propDict = [common loadValuesfromPropertiesFile:@"watchProperties"];
     
@@ -36,6 +33,7 @@
     NSString *strTimeColName    = [propDict objectForKey:@"timeStampCol"];//@"Timestamp";
     NSString *strUserColName    = [propDict objectForKey:@"userColName"];
     NSString *strCubColName     = [propDict objectForKey:@"cubColName"];
+    NSString *chngSeparator     = [propDict objectForKey:@"chngSeparator"];
     NSString *strOnDemandParam ;
     
     //get userid
@@ -150,9 +148,9 @@
             }
             
             
-            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B50",col1]];
-            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B50",col2]];
-            [arrRow addObject:[NSString stringWithFormat:@"%@\u00B50",col3]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@%@0",col1,chngSeparator]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@%@0",col2,chngSeparator]];
+            [arrRow addObject:[NSString stringWithFormat:@"%@%@0",col3,chngSeparator]];
             [arrRow addObject:strRowId];
             
             [watchRowArray addObject:arrRow];
